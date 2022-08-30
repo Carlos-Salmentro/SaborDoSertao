@@ -5,7 +5,6 @@ namespace SaborDoSertão.Servicos
 {
     public class Pedido
     {
-        
         public Produtos Produtos;
         public int Quantidade;
         public string? Observacao;

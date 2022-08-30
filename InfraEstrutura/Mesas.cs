@@ -5,9 +5,9 @@ namespace SaborDoSertão.InfraEstrutura
 {
     public class Mesas
     {
+        public int Id;
         public Status Status;
-        public int Numero;
-        public List<Pedido> Pedidos;
+        public List<Pedido> Pedidos = new List<Pedido>();
         public double Valor;
     }
 

@@ -3,8 +3,9 @@
     public enum Categoria
     {
         Comida,
-        Acompanhemento,
         Bebida,
+        Acompanhemento,
+        Porcao,
         Sobremesa,
         Diversos
     }
