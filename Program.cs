@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SaborDoSertão.EndPoints.Admin;
 using SaborDoSertão.InfraNet;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("ConnectionString");
+    var connectionString = builder.Configuration.GetConnectionString("SaborDoSertaoString");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
@@ -31,5 +32,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapMethods(PostMesas.Template, PostMesas.Methods, PostMesas.Handler);
+
 
 app.Run();
