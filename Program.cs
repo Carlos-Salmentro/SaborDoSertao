@@ -33,7 +33,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapMethods(PostMesas.Template, PostMesas.Methods, PostMesas.Handler);
-
+app.MapMethods(MesasPost.Template, MesasPost.Methods, MesasPost.Handler);
+app.MapMethods(MesasGetAll.Template, MesasGetAll.Methods, MesasGetAll.Handler);
+app.MapMethods(MesasDelete.Template, MesasDelete.Methods, MesasDelete.Handler);
 
 app.Run();

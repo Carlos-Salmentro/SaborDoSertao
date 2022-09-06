@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.InfraEstrutura.Enum;
+﻿using SaborDoSertão.EndPoints.Work.Mesas;
+using SaborDoSertão.InfraEstrutura.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,7 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         public int Id { get; set; }
         public Status Status { get; set; }
-        public Comanda? Comanda { get; set; }
+        public List<Comanda>? Comanda =new List<Comanda> { };
         public double Valor { get; set; }
 
         protected Mesa() { }
@@ -20,6 +21,12 @@ namespace SaborDoSertão.InfraEstrutura
             Id = id;
             Status = Status.Disponivel;
             Valor = 0.0;
+        }
+        
+        public void AddComanda(ComandaRequest comanda)
+        {
+            Comanda comanda1 = new Comanda {Identificador = comanda.Identificador, Abertura = comanda.Abertura, Pedido = comanda.Pedido};
+            Comanda.Add(comanda1);
         }
     }
 }

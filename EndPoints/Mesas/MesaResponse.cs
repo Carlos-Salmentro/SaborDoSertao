@@ -7,6 +7,6 @@ namespace SaborDoSertão.EndPoints.Mesas
     {
         public int MesaId { get; set; }
         public Status Status {get; set;}
-        public Comanda Comanda;
+        public Comanda? Comanda;
     }
 }

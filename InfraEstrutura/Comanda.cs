@@ -10,11 +10,11 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public string? Identificador { get; set; }
         public List<Pedido> Pedido { get; set; } = new List<Pedido>();
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
 
         public Comanda() { }
-    
     }
 }
