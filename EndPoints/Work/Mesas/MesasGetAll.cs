@@ -3,7 +3,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
 {
-    public class MesasGet
+    public class MesasGetAll
     {
         public static string Template => "/Mesas";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };

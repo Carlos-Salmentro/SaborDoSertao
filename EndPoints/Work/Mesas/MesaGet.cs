@@ -20,12 +20,15 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             if (id2 == null)
             {
                 var mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+                
                 if (mesa == null)
                     return Results.NotFound($"Nenhuma mesa com essa a numeração {id} encontrada");
+                
                 MesaResponse mesaSelecionada = new MesaResponse { MesaId = mesa.Id, Status = mesa.Status, Comanda = mesa.Comanda };
 
                 return Results.Ok(mesaSelecionada);
             }
+
             else
             {
                 var mesa = context.Mesas.FirstOrDefault(x => x.Id == id2);

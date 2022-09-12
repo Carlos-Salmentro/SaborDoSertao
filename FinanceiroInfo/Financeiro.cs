@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
 using SaborDoSertão.FinanceiroInfo.Enum;
+using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,8 +16,9 @@ namespace SaborDoSertão.FinanceiroInfo
         public int Id { get; set; }
         public DateTime Data;
         public FormaPagamento FormaPagamento;
-        public double Valor;
-        
+        public List<Comanda> Comandas = new List<Comanda>();
+        public List<Produto> Produtos = new List<Produto>();
+                
         
         protected Financeiro() { }
 

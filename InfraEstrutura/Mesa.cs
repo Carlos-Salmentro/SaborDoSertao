@@ -11,7 +11,7 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         public int Id { get; set; }
         public Status Status { get; set; }
-        public List<Comanda>? Comanda =new List<Comanda> { };
+        public List<Comanda>? Comanda = new List<Comanda>();
         public double Valor { get; set; }
 
         protected Mesa() { }
