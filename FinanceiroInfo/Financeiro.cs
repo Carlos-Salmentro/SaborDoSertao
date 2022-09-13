@@ -17,8 +17,7 @@ namespace SaborDoSertão.FinanceiroInfo
         public DateTime Data;
         public FormaPagamento FormaPagamento;
         public List<Comanda> Comandas = new List<Comanda>();
-        public List<Produto> Produtos = new List<Produto>();
-                
+                        
         
         protected Financeiro() { }
 

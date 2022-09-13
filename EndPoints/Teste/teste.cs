@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.EndPoints.Work;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
-namespace SaborDoSertão.EndPoints.Work.Mesas
+namespace SaborDoSertão.EndPoints.Teste
 {
     public class teste
     {
         public static IResult Action([FromRoute] int id, [FromBody] ComandaRequest? comandaRequest, [FromBody] List<PedidoRequest> pedidoRequest, AppDBContext context)
         {
+
+
             var mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
 
             if (mesa == null)
@@ -39,7 +42,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
                 if (comanda1 == null)
                 {
-                    return Results.BadRequest($"Nenhuma comanda encontrada na mesa {id} com o identificador {}")
+                    return Results.BadRequest($"Nenhuma comanda encontrada na mesa {id} com o identificador {comandaRequest.Identificador}");
                 }
 
                 foreach (PedidoRequest request in pedidoRequest)

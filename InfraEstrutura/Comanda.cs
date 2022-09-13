@@ -14,11 +14,27 @@ namespace SaborDoSertão.InfraEstrutura
         public int Id { get; set; }
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
-        public List<Pedido> Pedido { get; set; } = new List<Pedido>();
+        public List<Pedido> Pedido { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
 
         public Comanda() { }
+
+        public Comanda(int mesaId, string? identificador)
+        {
+            MesaId = mesaId;
+            Identificador = identificador;
+            Abertura = DateTime.Now;
+            Pedido = new List<Pedido>();
+        }
+        
+        public Comanda(string identificador, int? mesaId)
+        {
+            MesaId = mesaId;
+            Identificador = identificador;
+            Abertura = DateTime.Now;
+            Pedido = new List<Pedido>();
+        }
 
         public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)
         {
@@ -39,7 +55,7 @@ namespace SaborDoSertão.InfraEstrutura
 
         public ComandaResponse FindByIdentificador(string identificador, AppDBContext context)
         {
-            var comanda = context.ComandasTable.FindAsync(Identificador, identificador).Result;
+            Comanda comanda = context.ComandasTable.FindAsync(Identificador, identificador).Result;
 
             ComandaResponse response = new ComandaResponse
             {

@@ -1,11 +1,12 @@
-﻿using SaborDoSertão.InfraNet;
+﻿using SaborDoSertão.InfraEstrutura;
+using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Admin
 {
-    public class MesasGetAll
+    public class ComandasMesaGetAll
     {
         public static string Template => "/Admin/Mesas";
-        public static string[] Methods => new string[1] { HttpMethod.Get.ToString() };
+        public static string[] Methods => new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler => Action;
 
         public static IResult Action(AppDBContext context)
@@ -16,6 +17,12 @@ namespace SaborDoSertão.EndPoints.Admin
 
             return Results.Ok(response);
 
+        }
+        
+        public static void Redirect(Mesa mesa)
+        {
+            int id = mesa.Id;
+            return HttpResponse.Redirect(Fechamento.Template);
         }
 
     }

@@ -19,7 +19,7 @@ namespace SaborDoSertão.EndPoints.Admin
 
             context.Mesas.Remove(mesa);
             context.SaveChanges();
-            return Results.Ok("Mesa com Id " + id + " excluida");
+            return Results.Ok("Mesa de número " + id + " excluida");
 
         }
     }
