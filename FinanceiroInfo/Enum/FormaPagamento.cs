@@ -5,6 +5,8 @@
         Credito,
         Debito,
         Dinheiro,
-        Pix
+        Pix,
+        ValeRefeicao,
+        ValeAlimentacao
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.EndPoints.Work.Comandas;
+using SaborDoSertão.FinanceiroInfo;
+using SaborDoSertão.FinanceiroInfo.Enum;
 using SaborDoSertão.InfraNet;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,6 +19,8 @@ namespace SaborDoSertão.InfraEstrutura
         public List<Pedido> Pedido { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
+        public double ValorToral { get; set; }
+        public List<Fechamento> FechamentoInfo { get; set; }
 
         public Comanda() { }
 
@@ -68,7 +72,6 @@ namespace SaborDoSertão.InfraEstrutura
 
             return response;
         }
-
 
     }
 }

@@ -15,8 +15,6 @@ namespace SaborDoSertão.FinanceiroInfo
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public DateTime Data;
-        public FormaPagamento FormaPagamento;
         public List<Comanda> Comandas = new List<Comanda>();
                         
         protected Financeiro() { }
