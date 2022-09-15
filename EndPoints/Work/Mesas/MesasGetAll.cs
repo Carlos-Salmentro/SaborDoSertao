@@ -18,7 +18,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
         public void SelectMesa(Mesa mesa, HttpResponse response)
         {
-            var uri = MesaComandaGet.Template.ToString(); //Colocar o ID da mesa na uri ???????? COMO ????????????
+            var uri = Template + "/" + mesa.Id;
 
             response.Redirect(uri);
         }

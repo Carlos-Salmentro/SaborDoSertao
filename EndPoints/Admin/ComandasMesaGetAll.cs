@@ -19,11 +19,10 @@ namespace SaborDoSertão.EndPoints.Admin
 
         }
         
-        public static void Redirect(Mesa mesa)
+        public static void Redirect(Mesa mesa, HttpResponse response)
         {
             int id = mesa.Id;
-            return HttpResponse.Redirect(Fechamento.Template);
+            response.Redirect(Fechamento.Template);
         }
-
     }
 }

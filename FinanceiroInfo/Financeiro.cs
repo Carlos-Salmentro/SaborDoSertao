@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SaborDoSertão.FinanceiroInfo
 {
+
     [Table("FinanceiroInfo")]
     public class Financeiro
     {
@@ -18,7 +19,6 @@ namespace SaborDoSertão.FinanceiroInfo
         public FormaPagamento FormaPagamento;
         public List<Comanda> Comandas = new List<Comanda>();
                         
-        
         protected Financeiro() { }
 
     }

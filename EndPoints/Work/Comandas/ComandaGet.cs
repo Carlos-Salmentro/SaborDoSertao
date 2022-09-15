@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Comandas
@@ -9,17 +10,25 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action(AppDBContext context, string identificador)
+        public static IResult Action(AppDBContext context, [FromRoute] string identificador)
         {
-            if(identificador == null)
+            if (identificador == null)
             {
                 return Results.BadRequest("É necessário informar a identificação da comanda para acessa-la");
             }
 
-            Comanda comanda  = context.ComandasTable.FirstOrDefault(x => x.Identificador == identificador);
-            
-            ComandaResponse comandaResponse = new ComandaResponse { Identificador = comanda.Identificador, Abertura = comanda.Abertura,
-                MesaId = comanda.MesaId, Pedido = comanda.Pedido};
+            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Identificador == identificador);
+
+            if (comanda == null)
+                return Results.NotFound("Nenhuma comanda encontrada com o identificador: " + identificador);
+
+            ComandaResponse comandaResponse = new ComandaResponse
+            {
+                Identificador = comanda.Identificador,
+                Abertura = comanda.Abertura,
+                MesaId = comanda.MesaId,
+                Pedido = comanda.Pedido
+            };
 
             return Results.Ok(comandaResponse);
 

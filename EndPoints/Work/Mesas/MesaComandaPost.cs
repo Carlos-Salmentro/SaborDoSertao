@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.EndPoints.Work.Comandas;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
@@ -12,7 +13,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
         public static Mesa mesa { get; private set; }
 
 
-        public static IResult Action(ComandaRequest comandaRequest, int id, AppDBContext context)
+        public static IResult Action([FromBody] ComandaRequest comandaRequest, [FromRoute] int id, AppDBContext context)
         {
             mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
 
@@ -24,5 +25,6 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             context.SaveChangesAsync();
             return Results.CreatedAtRoute(Template);
         }
+               
     }
 }

@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using SaborDoSertão.EndPoints.Work.Mesas;
+using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.Web.Http;
 
@@ -18,6 +19,26 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
             context.SaveChanges();
 
             return Results.RedirectToRoute(Template + "/" + identificador);
+        }
+
+        public static IResult TransferirComandaParaMesa(string identificador, int id, AppDBContext context)
+        {
+            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Identificador == identificador);
+            
+            if(comanda == null)
+                return Results.BadRequest("Nenhuma comanda encontrada identificada como: " + identificador);
+                           
+            Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+            
+            if(mesa == null)
+            return Results.BadRequest("Nenhuma mesa encontrada com o número: " + id);
+
+            comanda.MesaId = id;
+            mesa.Status = InfraEstrutura.Enum.Status.EmUso;
+
+            context.SaveChanges();
+            string uri = MesasGetAll.Template + "/" + mesa.Id;
+            return Results.Redirect(uri);
         }
     }
 }
