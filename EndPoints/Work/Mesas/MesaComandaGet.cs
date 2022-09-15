@@ -20,7 +20,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
         {
             mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
             if (mesa == null)
-                return Results.BadRequest("Nenhuma mesa encontrada com o número: " + id);
+                return Results.NotFound("Nenhuma mesa encontrada com o número: " + id);
 
             var comandas = mesa.Comanda;
 

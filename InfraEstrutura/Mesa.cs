@@ -26,8 +26,18 @@ namespace SaborDoSertão.InfraEstrutura
         
         public void AddComanda(ComandaRequest comanda)
         {
-            Comanda comanda1 = new Comanda {Identificador = comanda.Identificador, Abertura = comanda.Abertura, Pedido = comanda.Pedido};
+            Comanda comanda1 = new Comanda {Identificador = comanda.Identificador, Pedido = comanda.Pedido};
             Comanda.Add(comanda1);
+        }
+
+        public void AddComanda(Comanda comanda)
+        {
+            Comanda.Add(comanda);
+        }
+
+        public void AddComandaList(List<Comanda> comandas)
+        {
+            Comanda.AddRange(comandas);
         }
     }
 }

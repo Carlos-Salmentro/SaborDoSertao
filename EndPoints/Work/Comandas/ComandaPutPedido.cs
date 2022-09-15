@@ -13,7 +13,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
         {
             if(pedidoRequests == null)
             {
-                return Results.BadRequest("Nenhum pedido para adicionar à comanda");
+                return Results.NotFound("Nenhum pedido para adicionar à comanda");
             }
 
             List<Pedido> pedidos = new List<Pedido>();
@@ -28,7 +28,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
             
             if(comanda == null)
             {
-                return Results.BadRequest("Nenhuma comanda encontrada com o identificador " + comandaResponse.Identificador);
+                return Results.NotFound("Nenhuma comanda encontrada com o identificador " + comandaResponse.Identificador);
             }
 
             comanda.Pedido.AddRange(pedidos);
