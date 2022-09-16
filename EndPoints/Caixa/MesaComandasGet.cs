@@ -36,6 +36,12 @@ namespace SaborDoSertão.EndPoints.Caixa
 
             return Results.Ok(list);
         }
-                
+
+        public static void SelecionarComanda(ComandaResponse comandaResponse, HttpResponse response)
+        {
+            response.Redirect(Template + "/Comanda/" + comandaResponse.Id);
+        }
     }
+
+    
 }

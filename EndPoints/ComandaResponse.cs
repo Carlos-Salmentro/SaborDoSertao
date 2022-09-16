@@ -10,5 +10,8 @@ namespace SaborDoSertão.EndPoints
         public List<Pedido> Pedido { get; set; } = new List<Pedido>();
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
+        public double? ValorTotal;
+        public double ValorPago;
+        public double? ValorRestante;
     }
 }

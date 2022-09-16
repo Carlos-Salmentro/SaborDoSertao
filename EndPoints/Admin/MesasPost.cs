@@ -10,11 +10,11 @@ namespace SaborDoSertão.EndPoints.Admin
         public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action(AppDBContext context, [FromBody] MesasRequest request)
+        public static IResult Action(AppDBContext context, [FromBody] MesaRequest request)
         {
-            var mesa = new Mesa(request.Id);
+            var mesa = new Mesa(request.MesaId);
             
-            var teste = context.Mesas.FirstOrDefault(x => x.Id == request.Id);
+            var teste = context.Mesas.FirstOrDefault(x => x.Id == request.MesaId);
 
             if (teste == null)
             {

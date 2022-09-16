@@ -33,3 +33,7 @@ C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDo
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\SaborDoSertão.pdb
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\SaborDoSertão.genruntimeconfig.cache
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\ref\SaborDoSertão.dll
+C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

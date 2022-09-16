@@ -2,6 +2,7 @@
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.Web.Http;
+using System.Linq;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
 {
@@ -28,7 +29,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                 Pedido pedido = new Pedido(x.Produtos, x.Quantidade, x.Observacao);
                 comanda.Pedido.Add(pedido);
             }
-
+            
             context.SaveChangesAsync();
             //Imprimir bar/Cozinha
             return Results.Created(Template, pedidoRequest);

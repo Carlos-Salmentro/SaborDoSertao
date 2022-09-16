@@ -19,8 +19,10 @@ namespace SaborDoSertão.InfraEstrutura
         public List<Pedido> Pedido { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
-        public double ValorToral { get; set; }
+        public double ValorTotal { get; set; }
         public List<Fechamento> FechamentoInfo { get; set; }
+        public double ValorPago = 0.0;
+        public double? ValorRestante;
 
         public Comanda() { }
 
@@ -30,6 +32,7 @@ namespace SaborDoSertão.InfraEstrutura
             Identificador = identificador;
             Abertura = DateTime.Now;
             Pedido = new List<Pedido>();
+            ValorPago = 0.0;
         }
         
         public Comanda(string identificador, int? mesaId)
@@ -38,40 +41,41 @@ namespace SaborDoSertão.InfraEstrutura
             Identificador = identificador;
             Abertura = DateTime.Now;
             Pedido = new List<Pedido>();
+            ValorPago = 0.0;
         }
 
-        public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)
-        {
-            var comanda = context.ComandasTable.FindAsync(MesaId, mesaId).Result;
+        //public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)
+        //{
+        //    var comanda = context.ComandasTable.FindAsync(MesaId, mesaId).Result;
 
-            ComandaResponse response = new ComandaResponse
-            {
-                MesaId = comanda.MesaId,
-                Identificador = comanda.Identificador,
-                Abertura = comanda.Abertura,
-                Fechamento = comanda.Fechamento,
-                Pedido = comanda.Pedido
-            };
-            
-            return response;
-        }
+        //    ComandaResponse response = new ComandaResponse
+        //    {
+        //        MesaId = comanda.MesaId,
+        //        Identificador = comanda.Identificador,
+        //        Abertura = comanda.Abertura,
+        //        Fechamento = comanda.Fechamento,
+        //        Pedido = comanda.Pedido
+        //    };
+
+        //    return response;
+        //}
 
 
-        public ComandaResponse FindByIdentificador(string identificador, AppDBContext context)
-        {
-            Comanda comanda = context.ComandasTable.FindAsync(Identificador, identificador).Result;
+        //public ComandaResponse FindByIdentificador(string identificador, AppDBContext context)
+        //{
+        //    Comanda comanda = context.ComandasTable.FindAsync(Identificador, identificador).Result;
 
-            ComandaResponse response = new ComandaResponse
-            {
-                MesaId = comanda.MesaId,
-                Identificador = comanda.Identificador,
-                Abertura = comanda.Abertura,
-                Fechamento = comanda.Fechamento,
-                Pedido = comanda.Pedido
-            };
+        //    ComandaResponse response = new ComandaResponse
+        //    {
+        //        MesaId = comanda.MesaId,
+        //        Identificador = comanda.Identificador,
+        //        Abertura = comanda.Abertura,
+        //        Fechamento = comanda.Fechamento,
+        //        Pedido = comanda.Pedido
+        //    };
 
-            return response;
-        }
+        //    return response;
+        //}
 
     }
 }
