@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.EndPoints.Mesas;
-using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.Collections.Generic;
@@ -30,6 +28,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             {
                 ComandaResponse resp = new ComandaResponse
                 {
+                    Id = x.Id,
                     Abertura = x.Abertura,
                     Identificador = x.Identificador,
                     MesaId = x.MesaId,
@@ -40,8 +39,13 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                 response.Add(resp);
             }
 
-            return Results.Ok(response.ToList());
+            return Results.Ok(response);
 
+        }
+
+        public static void SelectComandaResponse(ComandaResponse comandaResponse, HttpResponse response)
+        {
+            response.Redirect(Template + "/Comanda/" + comandaResponse.Id);
         }
 
     }

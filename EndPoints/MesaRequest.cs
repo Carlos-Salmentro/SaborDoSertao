@@ -1,4 +1,4 @@
-﻿namespace SaborDoSertão.EndPoints.Mesas
+﻿namespace SaborDoSertão.EndPoints
 {
     public class MesaRequest
     {

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.EndPoints.Work;
-using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 

@@ -1,4 +1,4 @@
-﻿using SaborDoSertão.EndPoints.Work.Comandas;
+﻿using SaborDoSertão.EndPoints;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraEstrutura.Enum;
 using System.ComponentModel.DataAnnotations;

@@ -1,6 +1,6 @@
 ﻿using SaborDoSertão.Domain.Enums;
 
-namespace SaborDoSertão.EndPoints.Produtos
+namespace SaborDoSertão.EndPoints
 {
     public class ProdutoRequest
     {

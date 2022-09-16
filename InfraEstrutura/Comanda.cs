@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.EndPoints.Work.Comandas;
+using SaborDoSertão.EndPoints;
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.FinanceiroInfo.Enum;
 using SaborDoSertão.InfraNet;

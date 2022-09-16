@@ -24,6 +24,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
 
             ComandaResponse comandaResponse = new ComandaResponse
             {
+                Id = comanda.Id,
                 Identificador = comanda.Identificador,
                 Abertura = comanda.Abertura,
                 MesaId = comanda.MesaId,

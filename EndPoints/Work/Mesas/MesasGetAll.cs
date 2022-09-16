@@ -1,5 +1,4 @@
-﻿using SaborDoSertão.EndPoints.Mesas;
-using SaborDoSertão.InfraEstrutura;
+﻿using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas

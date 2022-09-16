@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
@@ -26,7 +25,9 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
             mesa.Status = InfraEstrutura.Enum.Status.EmUso;
             context.SaveChangesAsync();
-            return Results.CreatedAtRoute(Template);
+            return Results.CreatedAtRoute(Template + "/Comanda/" + comanda.Id);
+
+            //voltar para "/Mesas/{id}"
         }
 
         public static IResult TransferirComandasMesaParaMesa([FromRoute] int id, [FromBody] int id2, [FromBody] string? identificador, AppDBContext context)
