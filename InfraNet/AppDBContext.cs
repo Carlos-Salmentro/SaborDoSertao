@@ -11,6 +11,5 @@ namespace SaborDoSertão.InfraNet
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Financeiro> FinanceiroTable { get; set; } 
         public DbSet<Comanda> ComandasTable { get; set; }
-
     }
 }

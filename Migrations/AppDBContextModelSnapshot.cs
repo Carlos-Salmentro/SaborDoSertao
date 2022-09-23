@@ -103,7 +103,7 @@ namespace SaborDoSertão.Migrations
                     b.Property<int?>("MesaId")
                         .HasColumnType("int");
 
-                    b.Property<double>("ValorToral")
+                    b.Property<double>("ValorTotal")
                         .HasColumnType("double");
 
                     b.HasKey("Id");
