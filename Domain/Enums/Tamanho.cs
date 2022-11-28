@@ -1,6 +1,6 @@
 ﻿namespace SaborDoSertão.Domain.Enums
 {
-    public enum Tamanho
+    public enum Tamanho : int
     {
         P,
         M,

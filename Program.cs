@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SaborDoSertão.EndPoints.Admin;
+using SaborDoSertão.EndPoints.Admin.Mesas;
+using SaborDoSertão.EndPoints.Admin.Produtos;
+using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +35,19 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//admin
 app.MapMethods(MesasPost.Template, MesasPost.Methods, MesasPost.Handler);
 app.MapMethods(MesasDelete.Template, MesasDelete.Methods, MesasDelete.Handler);
+app.MapMethods(ProdutoPost.Template, ProdutoPost.Methods, ProdutoPost.Handler);
+app.MapMethods(ProdutoDelete.Template, ProdutoDelete.Methods, ProdutoDelete.Handler);
+app.MapMethods(ProdutoPut.Template, ProdutoPut.Methods, ProdutoPut.Handler);
+app.MapMethods(ProdutosGet.Template, ProdutosGet.Methods, ProdutosGet.Handler);
+app.MapMethods(SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Template, SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Methods, SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Handler);
+
+//work
+app.MapMethods(SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Template, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Methods, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Handler);
+app.MapMethods(MesaComandaPost.Template, MesaComandaPost.Methods, MesaComandaPost.Handler);
+app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.Handler);
+
 
 app.Run();

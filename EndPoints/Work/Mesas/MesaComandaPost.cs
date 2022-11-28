@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
@@ -9,29 +10,35 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
         public static string Template => "/Mesas/{id}";
         public static string[] Methods = new string[] { HttpMethod.Post.ToString() };
         public static Delegate Handler => Action;
-        public static Mesa mesa { get; private set; }
-
-
-        public static IResult Action([FromBody] ComandaRequest comandaRequest, [FromRoute] int id, AppDBContext context)
+        
+        public static IResult Action([FromRoute] int id, [FromBody] Comanda comanda, [FromServices] AppDBContext context)
         {
-            mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+           Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
 
             if(mesa == null)
                 return Results.NotFound(id);
 
-            Comanda comanda = new Comanda(mesa.Id, comandaRequest.Identificador);
+            Comanda comanda1 = new Comanda { Identificador = comanda.Identificador, MesaId = id, Abertura = DateTime.Now, 
+                Pedido = new List<Pedido>(), ValorPago = 0.0, ValorRestante = 0.0, 
+                FechamentoInfo = new List<Fechamento>(), ValorTotal = 0.0 };
 
-            mesa.Comanda.Add(comanda);
+            mesa.Comanda.Add(comanda1);
 
             mesa.Status = InfraEstrutura.Enum.Status.EmUso;
+            
+            context.ComandasTable.Add(comanda);
+            
             context.SaveChangesAsync();
-            return Results.CreatedAtRoute(Template + "/Comanda/" + comanda.Id);
+            
+            return Results.Created(Template, comanda);
 
             //voltar para "/Mesas/{id}"
         }
 
-        public static IResult TransferirComandasMesaParaMesa([FromRoute] int id, [FromBody] int id2, [FromBody] string? identificador, AppDBContext context)
+        /*public static IResult TransferirComandasMesaParaMesa([FromRoute] int id, [FromBody] int id2, [FromBody] string? identificador, AppDBContext context)
         {
+            Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+
             if (mesa == null)
                 return Results.NotFound(id);
 
@@ -85,7 +92,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                 context.SaveChanges();
                 return Results.Redirect(MesasGetAll.Template + "/" + receptora.Id);
             }
-        }
+        }*/
                
     }
 }

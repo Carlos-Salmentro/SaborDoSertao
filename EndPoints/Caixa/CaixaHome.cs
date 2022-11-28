@@ -8,25 +8,19 @@ namespace SaborDoSertão.EndPoints.Caixa
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action (AppDBContext context)
+        public static IResult Action(AppDBContext context)
         {
             return Results.Ok();
         }
 
-        public static void SelecionarMesas(AppDBContext context, bool escolha, HttpResponse response)
+        public static void SelecionarMesas(HttpResponse response)
         {
-            if(escolha == true)
-            {
-                response.Redirect(Template + "/Mesas");
-            }
+            response.Redirect(Template + "/Mesas");
         }
 
-        public static void SelecionarComandas(AppDBContext context, bool escolha, HttpResponse response)
+        public static void SelecionarComandas(HttpResponse response)
         {
-            if (escolha == true)
-            {
-                response.Redirect(Template + "/Comandas");
-            }
+            response.Redirect(Template + "/Comandas");
         }
     }
 }

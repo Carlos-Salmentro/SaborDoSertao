@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.EndPoints;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.EndPoints;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraEstrutura.Enum;
 using System.ComponentModel.DataAnnotations;
@@ -22,18 +23,18 @@ namespace SaborDoSertão.InfraEstrutura
             Status = Status.Disponivel;
         }
 
-        public void AddComanda(ComandaRequest comanda)
+        public void AddComanda([FromBody]ComandaRequest comanda)
         {
             Comanda comanda1 = new Comanda { Identificador = comanda.Identificador, Pedido = comanda.Pedido };
             Comanda.Add(comanda1);
         }
 
-        public void AddComanda(Comanda comanda)
+        public void AddComanda([FromBody]Comanda comanda)
         {
             Comanda.Add(comanda);
         }
 
-        public void AddComandaList(List<Comanda> comandas)
+        public void AddComandaList([FromBody]List<Comanda> comandas)
         {
             Comanda.AddRange(comandas);
         }

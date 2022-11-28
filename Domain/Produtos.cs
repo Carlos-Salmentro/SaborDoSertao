@@ -1,4 +1,5 @@
 ﻿using SaborDoSertão.Domain.Enums;
+using SaborDoSertão.EndPoints;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -31,5 +32,6 @@ namespace SaborDoSertão.Domain
             Tamanho = tamanho;
             QuantServe = quantServe;
         }
-    }
+
+        }
 }

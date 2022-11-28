@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
@@ -14,7 +14,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
         public static Mesa mesa;
 
 
-        public static IResult Action([FromRoute] int id, [FromRoute] int comandaId, [Microsoft.AspNetCore.Mvc.FromBody] List<PedidoRequest> pedidoRequest, AppDBContext context)
+        public static IResult Action([FromRoute] int id, [FromRoute] int comandaId, [FromBody] List<PedidoRequest> pedidoRequest, AppDBContext context)
         {
             Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
             if (mesa == null)
@@ -29,6 +29,9 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                 Pedido pedido = new Pedido(x.Produtos, x.Quantidade, x.Observacao);
                 comanda.Pedido.Add(pedido);
             }
+
+            comanda.ValorTotal += pedidos.Sum(x => x.Valor);
+            comanda.ValorRestante += pedidos.Sum(x => x.Valor);
             
             context.SaveChangesAsync();
             //Imprimir bar/Cozinha

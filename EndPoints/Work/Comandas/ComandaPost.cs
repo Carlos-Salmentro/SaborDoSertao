@@ -1,7 +1,7 @@
-﻿using SaborDoSertão.EndPoints.Work.Mesas;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
-using System.Web.Http;
 
 namespace SaborDoSertão.EndPoints.Work.Comandas
 {

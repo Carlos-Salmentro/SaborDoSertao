@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.FinanceiroInfo;
+using SaborDoSertão.Domain;
 
 namespace SaborDoSertão.InfraNet
 {
@@ -11,5 +12,6 @@ namespace SaborDoSertão.InfraNet
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Financeiro> FinanceiroTable { get; set; } 
         public DbSet<Comanda> ComandasTable { get; set; }
+        public DbSet<Produto> ProdutosTable { get; set; }
     }
 }

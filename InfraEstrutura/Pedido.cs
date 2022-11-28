@@ -1,4 +1,6 @@
-﻿using SaborDoSertão.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
+using SaborDoSertão.InfraNet;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +13,7 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Produto Produtos { get; set; }
+        public Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public string? Observacao { get; set; }
         public double Valor { get; set; }
@@ -19,13 +21,26 @@ namespace SaborDoSertão.InfraEstrutura
 
         protected Pedido() { }
 
-        public Pedido(Produto produtos, int quantidade, string? observacao)
+        public Pedido(Produto produto, int quantidade, string? observacao)
         {
-            Produtos = produtos;
+            Produto = produto;
             Quantidade = quantidade;
             Observacao = observacao;
             Data = DateTime.Now;
-            Valor = produtos.Preco * quantidade;
+            Valor = produto.Preco * quantidade;
         }
+
+        /*public Pedido([FromServices] AppDBContext context, int id, int quantidade, string? observacao)
+        {
+            Produtos = context.ProdutosTable.FirstOrDefault(x => x.Id == id);
+
+            if (Produtos == null)
+                throw new Exception("Produto não encontrado");
+
+            Quantidade = quantidade;
+            Observacao = observacao;
+            Data = DateTime.Now;
+            Valor = Produtos.Preco * quantidade;
+        }*/
     }
 }

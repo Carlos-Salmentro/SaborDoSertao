@@ -2,7 +2,6 @@
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.Collections.Generic;
-using System.Web.Http;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
 {

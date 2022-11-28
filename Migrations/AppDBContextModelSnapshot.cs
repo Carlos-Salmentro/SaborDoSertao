@@ -61,6 +61,9 @@ namespace SaborDoSertão.Migrations
                     b.Property<int?>("ComandaId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("FinanceiroId")
+                        .HasColumnType("int");
+
                     b.Property<int>("FormaDePagamento")
                         .HasColumnType("int");
 
@@ -71,6 +74,8 @@ namespace SaborDoSertão.Migrations
 
                     b.HasIndex("ComandaId");
 
+                    b.HasIndex("FinanceiroId");
+
                     b.ToTable("Fechamento");
                 });
 
@@ -79,6 +84,24 @@ namespace SaborDoSertão.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Abertura")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Fechamento")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("IdentificacaoComanda")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Identificador")
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("MesaId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ValorTotal")
+                        .HasColumnType("double");
 
                     b.HasKey("Id");
 
@@ -137,6 +160,9 @@ namespace SaborDoSertão.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int?>("FinanceiroId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Observacao")
                         .HasColumnType("longtext");
 
@@ -153,6 +179,8 @@ namespace SaborDoSertão.Migrations
 
                     b.HasIndex("ComandaId");
 
+                    b.HasIndex("FinanceiroId");
+
                     b.HasIndex("ProdutosId");
 
                     b.ToTable("Pedidos");
@@ -163,6 +191,10 @@ namespace SaborDoSertão.Migrations
                     b.HasOne("SaborDoSertão.InfraEstrutura.Comanda", null)
                         .WithMany("FechamentoInfo")
                         .HasForeignKey("ComandaId");
+
+                    b.HasOne("SaborDoSertão.FinanceiroInfo.Financeiro", null)
+                        .WithMany("FechamentoInfo")
+                        .HasForeignKey("FinanceiroId");
                 });
 
             modelBuilder.Entity("SaborDoSertão.InfraEstrutura.Pedido", b =>
@@ -171,6 +203,10 @@ namespace SaborDoSertão.Migrations
                         .WithMany("Pedido")
                         .HasForeignKey("ComandaId");
 
+                    b.HasOne("SaborDoSertão.FinanceiroInfo.Financeiro", null)
+                        .WithMany("Pedido")
+                        .HasForeignKey("FinanceiroId");
+
                     b.HasOne("SaborDoSertão.Domain.Produto", "Produtos")
                         .WithMany()
                         .HasForeignKey("ProdutosId")
@@ -178,6 +214,13 @@ namespace SaborDoSertão.Migrations
                         .IsRequired();
 
                     b.Navigation("Produtos");
+                });
+
+            modelBuilder.Entity("SaborDoSertão.FinanceiroInfo.Financeiro", b =>
+                {
+                    b.Navigation("FechamentoInfo");
+
+                    b.Navigation("Pedido");
                 });
 
             modelBuilder.Entity("SaborDoSertão.InfraEstrutura.Comanda", b =>
