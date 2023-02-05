@@ -11,25 +11,28 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
 
         public static IResult Action(ComandaResponse comandaResponse, List<PedidoRequest> pedidoRequests, AppDBContext context)
         {
-            if(pedidoRequests == null)
+            if (pedidoRequests == null)
             {
                 return Results.NotFound("Nenhum pedido para adicionar à comanda");
             }
 
-            List<Pedido> pedidos = new List<Pedido>();
-
-            foreach(var pedidoRequest in pedidoRequests)
-            {
-                Pedido pedido = new Pedido(pedidoRequest.Produtos, pedidoRequest.Quantidade, pedidoRequest.Observacao);
-                pedidos.Add(pedido);
-            }
-
             Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Identificador == comandaResponse.Identificador);
-            
-            if(comanda == null)
+
+            if (comanda == null)
             {
                 return Results.NotFound("Nenhuma comanda encontrada com o identificador " + comandaResponse.Identificador);
             }
+
+            List<Pedido> pedidos = new List<Pedido>();
+
+            foreach (PedidoRequest x in pedidoRequests)
+            {
+                Pedido pedido = new Pedido(x.Produtos, x.Quantidade, x.Observacao);
+                pedidos.Add(pedido);
+            }
+
+            comanda.ValorTotal += pedidos.Sum(x => x.Valor);
+            comanda.ValorRestante += pedidos.Sum(x => x.Valor);
 
             comanda.Pedido.AddRange(pedidos);
             context.SaveChanges();

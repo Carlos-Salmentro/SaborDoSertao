@@ -32,7 +32,6 @@ namespace SaborDoSertão.InfraEstrutura
             Identificador = identificador;
             Abertura = DateTime.Now;
             Pedido = new List<Pedido>();
-            ValorPago = 0.0;
         }
 
         /*public Comanda(int mesaId, string? identificador)
@@ -56,7 +55,6 @@ namespace SaborDoSertão.InfraEstrutura
             Identificador = identificador;
             Abertura = DateTime.Now;
             Pedido = new List<Pedido>();
-            ValorPago = 0.0;
         }
 
         //public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)

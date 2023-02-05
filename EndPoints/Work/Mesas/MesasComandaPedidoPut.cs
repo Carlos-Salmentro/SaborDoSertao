@@ -33,7 +33,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             comanda.ValorTotal += pedidos.Sum(x => x.Valor);
             comanda.ValorRestante += pedidos.Sum(x => x.Valor);
             
-            context.SaveChangesAsync();
+            context.SaveChangesAsync().Wait();
             //Imprimir bar/Cozinha
             return Results.Created(Template, pedidoRequest);
         }

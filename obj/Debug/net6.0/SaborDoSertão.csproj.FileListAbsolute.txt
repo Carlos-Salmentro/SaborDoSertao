@@ -33,3 +33,43 @@ C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDo
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\SaborDoSertão.pdb
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\SaborDoSertão.genruntimeconfig.cache
 C:\Users\Desktop\Desktop\Arquivos\Programação\Soluções\SaborDoSertao\SaborDoSertão\obj\Debug\net6.0\ref\SaborDoSertão.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.csproj.AssemblyReference.cache
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.AssemblyInfoInputs.cache
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.AssemblyInfo.cs
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.csproj.CoreCompileInputs.cache
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\refint\SaborDoSertão.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.pdb
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\appsettings.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\SaborDoSertão.exe
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\SaborDoSertão.deps.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\SaborDoSertão.runtimeconfig.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\SaborDoSertão.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\SaborDoSertão.pdb
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Humanizer.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets\msbuild.SaborDoSertão.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets\msbuild.build.SaborDoSertão.props
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SaborDoSertão.props
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SaborDoSertão.props
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\scopedcss\bundle\SaborDoSertão.styles.css
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.csproj.CopyComplete
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\SaborDoSertão.genruntimeconfig.cache
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\obj\Debug\net6.0\ref\SaborDoSertão.dll

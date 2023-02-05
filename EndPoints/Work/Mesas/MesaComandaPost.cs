@@ -28,7 +28,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             
             context.ComandasTable.Add(comanda);
             
-            context.SaveChangesAsync();
+            context.SaveChanges();
             
             return Results.Created(Template, comanda);
 
