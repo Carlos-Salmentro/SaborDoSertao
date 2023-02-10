@@ -14,6 +14,7 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [ForeignKey("MesaId")]
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
         public List<Pedido> Pedido { get; set; }

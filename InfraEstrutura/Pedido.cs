@@ -4,6 +4,7 @@ using SaborDoSertão.InfraNet;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace SaborDoSertão.InfraEstrutura
 {
@@ -13,6 +14,8 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [ForeignKey("ComandaId")]
+        public int ComandaId;
         public Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public string? Observacao { get; set; }
