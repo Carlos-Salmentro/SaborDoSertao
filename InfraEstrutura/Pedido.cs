@@ -8,15 +8,16 @@ using System.Runtime.Serialization;
 
 namespace SaborDoSertão.InfraEstrutura
 {
-    [Table("Pedidos")]
+    [Table("PedidosTable")]
     public class Pedido
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [ForeignKey("ProdutoId")]
+        public Guid ProdutoId { get; set; }
         [ForeignKey("ComandaId")]
         public int ComandaId;
-        public Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public string? Observacao { get; set; }
         public double Valor { get; set; }
@@ -24,13 +25,14 @@ namespace SaborDoSertão.InfraEstrutura
 
         protected Pedido() { }
 
-        public Pedido(Produto produto, int quantidade, string? observacao)
+        public Pedido(int comandaId, Guid produtoId, int quantidade, string? observacao, [FromServices] AppDBContext context)
         {
-            Produto = produto;
+            ComandaId = comandaId;
+            ProdutoId = produtoId;
             Quantidade = quantidade;
             Observacao = observacao;
             Data = DateTime.Now;
-            Valor = produto.Preco * quantidade;
+            Valor = context.ProdutosTable.FirstOrDefault(x => x.Id == produtoId).Preco * quantidade;
         }
 
         /*public Pedido([FromServices] AppDBContext context, int id, int quantidade, string? observacao)

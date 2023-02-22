@@ -27,7 +27,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
                     Abertura = comanda.Abertura,
                     Identificador = comanda.Identificador,
                     MesaId = comanda.MesaId,
-                    Pedido = comanda.Pedido
+                    
                 };
 
                 list.Add(comandaResponse);

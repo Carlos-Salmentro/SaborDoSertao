@@ -3,6 +3,8 @@ using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
+using SaborDoSertão.Servicos.SeedService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,7 +21,6 @@ builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,6 +35,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 //admin
 app.MapMethods(MesasPost.Template, MesasPost.Methods, MesasPost.Handler);
@@ -51,3 +54,5 @@ app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.H
 
 
 app.Run();
+
+

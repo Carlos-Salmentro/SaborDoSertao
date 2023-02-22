@@ -1,11 +1,12 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Comandas
 {
     public class ComandaPutPedido
     {
-        public static string Template => "/Comandas/{identificador}";
+        public static string Template => "/Comandas/{id}";
         public static string[] Methods = new string[] { HttpMethod.Put.ToString() };
         public static Delegate Handler = Action;
 
@@ -27,14 +28,14 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
 
             foreach (PedidoRequest x in pedidoRequests)
             {
-                Pedido pedido = new Pedido(x.Produtos, x.Quantidade, x.Observacao);
+                Pedido pedido = new Pedido(comanda.Id, x.ProdutoId, x.Quantidade, x.Observacao, context);
                 pedidos.Add(pedido);
             }
 
             comanda.ValorTotal += pedidos.Sum(x => x.Valor);
             comanda.ValorRestante += pedidos.Sum(x => x.Valor);
 
-            comanda.Pedido.AddRange(pedidos);
+            context.PedidosTable.AddRange(pedidos);
             context.SaveChanges();
             //imprimir List<Pedido> pedidos bar - cozinha
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
-using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
@@ -26,8 +25,8 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
             foreach (PedidoRequest x in pedidoRequest)
             {
-                Pedido pedido = new Pedido(x.Produtos, x.Quantidade, x.Observacao);
-                comanda.Pedido.Add(pedido);
+                Pedido pedido = new Pedido(comanda.Id, x.ProdutoId, x.Quantidade, x.Observacao, context);
+                context.PedidosTable.Add(pedido);
             }
 
             comanda.ValorTotal += pedidos.Sum(x => x.Valor);

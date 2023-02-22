@@ -7,7 +7,7 @@ namespace SaborDoSertão.Serviços.Produtos
     {
         public static Produto ToProduto(this ProdutoRequest produtoRequest)
         {
-            Produto produto = new Produto(produtoRequest.Id, produtoRequest.Nome, produtoRequest.Preco, produtoRequest.Categoria,
+            Produto produto = new Produto(produtoRequest.Nome, produtoRequest.Preco, produtoRequest.Categoria,
                 produtoRequest.Tamanho, produtoRequest.QuantServe, produtoRequest.Custo, produtoRequest.Descricao);
 
             return produto;

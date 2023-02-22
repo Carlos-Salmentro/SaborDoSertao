@@ -28,7 +28,8 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
                 Identificador = comanda.Identificador,
                 Abertura = comanda.Abertura,
                 MesaId = comanda.MesaId,
-                Pedido = comanda.Pedido
+                //Pedido = new List<Pedido>(context.PedidosTable.Select()
+                
             };
 
             return Results.Ok(comandaResponse);

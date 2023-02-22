@@ -3,6 +3,7 @@ using SaborDoSertão.EndPoints.Work;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
+
 namespace SaborDoSertão.EndPoints.Teste
 {
     public class teste
@@ -23,9 +24,9 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(request.Produtos, request.Quantidade, request.Observacao);
+                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
 
-                    comanda1.Pedido.Add(pedido);
+                    context.PedidosTable.Add(pedido);
                 }
 
                 mesa.Status = InfraEstrutura.Enum.Status.EmUso;
@@ -46,9 +47,9 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(request.Produtos, request.Quantidade, request.Observacao);
+                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
 
-                    comanda1.Pedido.Add(pedido);
+                    context.PedidosTable.Add(pedido);
                 }
 
                 context.SaveChanges();
@@ -61,9 +62,9 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(request.Produtos, request.Quantidade, request.Observacao);
+                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
 
-                    comanda1.Pedido.Add(pedido);
+                    context.PedidosTable.Add(pedido);
                 }
 
                 context.SaveChanges();

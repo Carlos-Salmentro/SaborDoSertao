@@ -31,7 +31,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                     Abertura = x.Abertura,
                     Identificador = x.Identificador,
                     MesaId = x.MesaId,
-                    Pedido = x.Pedido,
+                    //Pedido = context.PedidosTable.Find(x => x.Id == id),
                     Fechamento = x.Fechamento
                 };
 

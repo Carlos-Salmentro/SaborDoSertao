@@ -11,7 +11,8 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
         public static IResult Action(int id, AppDBContext context)
         {
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == id);
+            Comanda comanda = 
+                context.ComandasTable.FirstOrDefault(x => x.Id == id);
 
             if (comanda == null)
                 return Results.NotFound(id);
@@ -21,7 +22,6 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
                 Id = comanda.Id,
                 MesaId = comanda.MesaId,
                 Abertura = comanda.Abertura,
-                Pedido = comanda.Pedido,
                 Fechamento = comanda.Fechamento,
                 Identificador = comanda.Identificador,
                 ValorTotal = comanda.ValorTotal,

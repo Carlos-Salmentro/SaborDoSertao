@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\SaborDoSertão.csproj": {}
+    "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\SaborDoSertão.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\SaborDoSertão.csproj": {
+    "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\SaborDoSertão.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\SaborDoSertão.csproj",
+        "projectUniqueName": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\SaborDoSertão.csproj",
         "projectName": "SaborDoSertão",
-        "projectPath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\SaborDoSertão.csproj",
+        "projectPath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\SaborDoSertão.csproj",
         "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\obj\\",
+        "outputPath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

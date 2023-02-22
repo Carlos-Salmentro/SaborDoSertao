@@ -1,4 +1,5 @@
-﻿using SaborDoSertão.Domain.Enums;
+﻿using Pomelo.EntityFrameworkCore.MySql.Query.Internal;
+using SaborDoSertão.Domain.Enums;
 using SaborDoSertão.EndPoints;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,8 +10,9 @@ namespace SaborDoSertão.Domain
     public class Produto
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
+        public Guid Id { get; set; } = new Guid(Guid.NewGuid().ToString());
         public string Nome { get; set; }
         public double? Custo { get; set; }
         public double Preco { get; set; }
@@ -21,9 +23,8 @@ namespace SaborDoSertão.Domain
 
         protected Produto() { }
 
-        public Produto(int id, string nome, double preco, Categoria categoria, Tamanho? tamanho, int? quantServe, double? custo, string? descricao)
+        public Produto(string nome, double preco, Categoria categoria, Tamanho? tamanho, int? quantServe, double? custo, string? descricao)
         {
-            Id = id;
             Nome = nome;
             Preco = preco;
             Categoria = categoria;
@@ -33,5 +34,5 @@ namespace SaborDoSertão.Domain
             QuantServe = quantServe;
         }
 
-        }
+    }
 }

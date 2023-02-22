@@ -17,7 +17,6 @@ namespace SaborDoSertão.InfraEstrutura
         [ForeignKey("MesaId")]
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
-        public List<Pedido> Pedido { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
         public double ValorTotal { get; set; }
@@ -32,7 +31,6 @@ namespace SaborDoSertão.InfraEstrutura
             MesaId = mesaId;
             Identificador = identificador;
             Abertura = DateTime.Now;
-            Pedido = new List<Pedido>();
         }
 
         /*public Comanda(int mesaId, string? identificador)
@@ -55,7 +53,6 @@ namespace SaborDoSertão.InfraEstrutura
             MesaId = mesaId;
             Identificador = identificador;
             Abertura = DateTime.Now;
-            Pedido = new List<Pedido>();
         }
 
         //public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)

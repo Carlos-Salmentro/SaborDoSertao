@@ -2,6 +2,8 @@
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.Domain;
+using Microsoft.EntityFrameworkCore.Internal;
+using SaborDoSertão.Servicos.SeedService;
 
 namespace SaborDoSertão.InfraNet
 {
@@ -13,5 +15,19 @@ namespace SaborDoSertão.InfraNet
         public DbSet<Financeiro> FinanceiroTable { get; set; } 
         public DbSet<Comanda> ComandasTable { get; set; }
         public DbSet<Produto> ProdutosTable { get; set; }
+        public DbSet<Pedido> PedidosTable { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Produto>()
+                .Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            base.OnModelCreating(modelBuilder);
+                        
+            new SeedService(modelBuilder).Seed();
+
+            
+        }
     }
 }

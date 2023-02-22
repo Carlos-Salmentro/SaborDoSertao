@@ -22,7 +22,6 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
                     Id = x.Id,
                     MesaId = x.MesaId,
                     Abertura = x.Abertura,
-                    Pedido = x.Pedido,
                     Fechamento = x.Fechamento,
                     Identificador = x.Identificador,
                 };

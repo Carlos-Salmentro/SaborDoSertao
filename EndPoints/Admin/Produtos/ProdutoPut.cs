@@ -10,7 +10,7 @@ namespace SaborDoSertão.EndPoints.Admin.Produtos
         public static string[] Methods = { HttpMethods.Put.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromServices] AppDBContext context, [FromRoute] int id, [FromBody] ProdutoRequest produtoAlteracoes)
+        public static IResult Action([FromServices] AppDBContext context, [FromRoute] Guid id, [FromBody] ProdutoRequest produtoAlteracoes)
         {
             Produto produto = context.ProdutosTable.FirstOrDefault(x => x.Id == id);
 
