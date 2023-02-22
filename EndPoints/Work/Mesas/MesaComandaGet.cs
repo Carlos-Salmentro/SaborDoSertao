@@ -8,31 +8,31 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
     public class MesaComandaGet
     {
 
-        public static string Template => "/Mesas/{id}";
+        public static string Template => "/Mesas/{MesaId}";
         public static string[] Methods => new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler => Action;
         public static Mesa mesa { get; set; }
 
-        public static IResult Action([FromRoute] int id, AppDBContext context)
+        public static IResult Action([FromRoute] int MesaId, AppDBContext context)
         {
-            mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+            mesa = context.Mesas.FirstOrDefault(x => x.Id == MesaId);
             if (mesa == null)
-                return Results.NotFound("Nenhuma mesa encontrada com o número: " + id);
+                return Results.NotFound("Nenhuma mesa encontrada com o número: " + MesaId);
 
-            var comandas = mesa.Comanda;
+            var comandas = context.ComandasTable.Where(x => x.MesaId == MesaId);
 
             List<ComandaResponse> response = new List<ComandaResponse>();
 
-            foreach (Comanda x in comandas)
+            foreach (var comanda in comandas)
             {
                 ComandaResponse resp = new ComandaResponse
                 {
-                    Id = x.Id,
-                    Abertura = x.Abertura,
-                    Identificador = x.Identificador,
-                    MesaId = x.MesaId,
-                    //Pedido = context.PedidosTable.Find(x => x.Id == id),
-                    Fechamento = x.Fechamento
+                    Id = comanda.Id,
+                    Abertura = comanda.Abertura,
+                    Identificador = comanda.Identificador,
+                    MesaId = comanda.MesaId,
+                    //Pedido = new List<Pedido>(context.PedidosTable.Where(x => x.ComandaId == comanda.Id).ToList()),
+                    //Fechamento = x.Fechamento
                 };
 
                 response.Add(resp);

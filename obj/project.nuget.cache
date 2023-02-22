@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s+gUcJ4i1WxhZOVPvckydFM2rQNGUoNelSvpVZx9N6tLzM5O0bWW2YuU1nfEFa62Vo+pXj6sZbd6HCp2norvCQ==",
+  "dgSpecHash": "iqIAv2fqb5ICeODBr+Jhhi3ulwjlVs2mq8Kx1Jhfw9khsaK7FFbnrhv/ZBCkYO3dr6BNr2BWyt4dwC9WHB5lbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao - Copia\\SaborDoSertão.csproj",
+  "projectFilePath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\Arquivos\\Programação\\Solucoes\\SaborDoSertao\\SaborDoSertão.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carlo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\carlo\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.9\\microsoft.entityframeworkcore.6.0.9.nupkg.sha512",

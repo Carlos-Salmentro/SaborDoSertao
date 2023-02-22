@@ -20,7 +20,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
             Comanda comanda1 = new Comanda { Identificador = comanda.Identificador, MesaId = id, Abertura = DateTime.Now, 
                 ValorPago = 0.0, ValorRestante = 0.0, 
-                FechamentoInfo = new List<Fechamento>(), ValorTotal = 0.0 };
+                ValorTotal = 0.0 };
 
             mesa.Comanda.Add(comanda1);
 

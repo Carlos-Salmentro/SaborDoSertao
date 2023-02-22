@@ -3,6 +3,7 @@ using SaborDoSertão.EndPoints;
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.FinanceiroInfo.Enum;
 using SaborDoSertão.InfraNet;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,12 +18,12 @@ namespace SaborDoSertão.InfraEstrutura
         [ForeignKey("MesaId")]
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
-        public DateTime Abertura { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public DateTime Abertura { get; set; } = DateTime.Now.ToLocalTime();
         public DateTime Fechamento { get; set; }
-        public double ValorTotal { get; set; }
-        public List<Fechamento> FechamentoInfo { get; set; }
-        public double ValorPago = 0.0;
-        public double ValorRestante = 0.0;
+        public double ValorTotal { get; set; } = 0.0;
+        public double ValorPago { get; set; } = 0.0;
+        public double ValorRestante { get; set; } = 0.0;
 
         public Comanda() { }
 
@@ -30,7 +31,7 @@ namespace SaborDoSertão.InfraEstrutura
         {
             MesaId = mesaId;
             Identificador = identificador;
-            Abertura = DateTime.Now;
+
         }
 
         /*public Comanda(int mesaId, string? identificador)

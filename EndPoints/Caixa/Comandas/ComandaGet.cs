@@ -1,21 +1,22 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
     public class ComandaGet
     {
-        public static string Template => "Caixa/Comanda/{id}";
+        public static string Template => "Caixa/Comanda/{ComandaId}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action(int id, AppDBContext context)
+        public static IResult Action([FromRoute] int ComandaId, AppDBContext context)
         {
             Comanda comanda = 
-                context.ComandasTable.FirstOrDefault(x => x.Id == id);
+                context.ComandasTable.FirstOrDefault(x => x.Id == ComandaId);
 
             if (comanda == null)
-                return Results.NotFound(id);
+                return Results.NotFound(ComandaId);
 
             ComandaResponse comandaResponse = new ComandaResponse
             {
