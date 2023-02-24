@@ -51,6 +51,7 @@ app.MapMethods(SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Template, SaborDo
 app.MapMethods(SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Template, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Methods, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Handler);
 app.MapMethods(MesaComandaPost.Template, MesaComandaPost.Methods, MesaComandaPost.Handler);
 app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.Handler);
+app.MapMethods(MesasComandaPedidoPost.Template, MesasComandaPedidoPost.Methods, MesasComandaPedidoPost.Handler);
 
 
 app.Run();

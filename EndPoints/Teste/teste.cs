@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
 using SaborDoSertão.EndPoints.Work;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
@@ -24,7 +25,9 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
+                    Produto produto = context.ProdutosTable.Single(x => x.Id == request.ProdutoId);
+
+                    Pedido pedido = new Pedido(comanda1.Id, produto, request.Quantidade, request.Observacao);
 
                     context.PedidosTable.Add(pedido);
                 }
@@ -47,7 +50,8 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
+                    Produto produto = context.ProdutosTable.Single(x => x.Id == request.ProdutoId);
+                    Pedido pedido = new Pedido(comanda1.Id, produto, request.Quantidade, request.Observacao);
 
                     context.PedidosTable.Add(pedido);
                 }
@@ -62,7 +66,8 @@ namespace SaborDoSertão.EndPoints.Teste
 
                 foreach (PedidoRequest request in pedidoRequest)
                 {
-                    Pedido pedido = new Pedido(comanda1.Id, request.ProdutoId, request.Quantidade, request.Observacao, context);
+                    Produto produto = context.ProdutosTable.Single(x => x.Id == request.ProdutoId);
+                    Pedido pedido = new Pedido(comanda1.Id, produto, request.Quantidade, request.Observacao);
 
                     context.PedidosTable.Add(pedido);
                 }

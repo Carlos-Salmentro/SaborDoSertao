@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
 using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
@@ -28,7 +29,8 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
 
             foreach (PedidoRequest x in pedidoRequests)
             {
-                Pedido pedido = new Pedido(comanda.Id, x.ProdutoId, x.Quantidade, x.Observacao, context);
+                Produto produto = context.ProdutosTable.Single(p => p.Id == x.ProdutoId);
+                Pedido pedido = new Pedido(comanda.Id, produto, x.Quantidade, x.Observacao);
                 pedidos.Add(pedido);
             }
 

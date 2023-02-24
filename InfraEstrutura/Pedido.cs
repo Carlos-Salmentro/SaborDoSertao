@@ -14,10 +14,12 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("ProdutoId")]
-        public Guid ProdutoId { get; set; }
         [ForeignKey("ComandaId")]
         public int ComandaId;
+        [ForeignKey("NomeProduto")]
+        public string NomeProduto { get; set; }
+        [ForeignKey("ProdutoId")]
+        public Guid ProdutoId { get; set; }
         public int Quantidade { get; set; }
         public string? Observacao { get; set; }
         public double Valor { get; set; }
@@ -25,14 +27,15 @@ namespace SaborDoSertão.InfraEstrutura
 
         protected Pedido() { }
 
-        public Pedido(int comandaId, Guid produtoId, int quantidade, string? observacao, [FromServices] AppDBContext context)
+        public Pedido(int comandaId, Produto produto, int quantidade, string? observacao)
         {
             ComandaId = comandaId;
-            ProdutoId = produtoId;
+            ProdutoId = produto.Id;
+            NomeProduto = produto.Nome;
             Quantidade = quantidade;
             Observacao = observacao;
             Data = DateTime.Now;
-            Valor = context.ProdutosTable.FirstOrDefault(x => x.Id == produtoId).Preco * quantidade;
+            Valor = produto.Preco * quantidade;
         }
 
         /*public Pedido([FromServices] AppDBContext context, int id, int quantidade, string? observacao)
