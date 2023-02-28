@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.InfraEstrutura;
+using SaborDoSertão.Domain;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
@@ -12,7 +12,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
         public static IResult Action([FromServices]AppDBContext context)
         {
-            var mesas = context.Mesas.Select(x => new MesaResponse { MesaId = x.Id, Comanda = x.Comanda, Status = x.Status });
+            var mesas = context.Mesas.Select(x => new MesaResponse { MesaId = x.Id, Status = x.Status });
             return Results.Ok(mesas);
         }
 

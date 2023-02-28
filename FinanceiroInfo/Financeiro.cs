@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.Domain;
 using SaborDoSertão.FinanceiroInfo.Enum;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

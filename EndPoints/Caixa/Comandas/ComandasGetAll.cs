@@ -1,4 +1,4 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using SaborDoSertão.Domain;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Comandas

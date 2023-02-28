@@ -1,4 +1,4 @@
-﻿namespace SaborDoSertão.InfraEstrutura.Enum
+﻿namespace SaborDoSertão.Domain.Enums
 {
     public enum Status
     {

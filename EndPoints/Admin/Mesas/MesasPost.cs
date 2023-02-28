@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
+using SaborDoSertão.Domain;
 
 namespace SaborDoSertão.EndPoints.Admin.Mesas
 {

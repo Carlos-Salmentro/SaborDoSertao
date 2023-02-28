@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
+using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
 using SaborDoSertão.Servicos.SeedService;
@@ -52,6 +53,8 @@ app.MapMethods(SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Template, SaborDoS
 app.MapMethods(MesaComandaPost.Template, MesaComandaPost.Methods, MesaComandaPost.Handler);
 app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.Handler);
 app.MapMethods(MesasComandaPedidoPost.Template, MesasComandaPedidoPost.Methods, MesasComandaPedidoPost.Handler);
+
+app.MapMethods(ComandasGetAll.Template, ComandasGetAll.Methods, ComandasGetAll.Handler);
 
 
 app.Run();

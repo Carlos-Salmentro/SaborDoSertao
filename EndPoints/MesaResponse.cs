@@ -1,5 +1,5 @@
-﻿using SaborDoSertão.InfraEstrutura;
-using SaborDoSertão.InfraEstrutura.Enum;
+﻿using SaborDoSertão.Domain;
+using SaborDoSertão.Domain.Enums;
 
 namespace SaborDoSertão.EndPoints
 {

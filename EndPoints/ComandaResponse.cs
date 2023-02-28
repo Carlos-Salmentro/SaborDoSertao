@@ -1,17 +1,16 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using SaborDoSertão.Domain;
 
 namespace SaborDoSertão.EndPoints
 {
     public class ComandaResponse
     {
-        public int Id;
+        public int Id { get; set; }
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
-        //public List<Pedido> Pedido { get; set; } = new List<Pedido>();
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
-        public double ValorTotal;
-        public double ValorPago;
-        public double ValorRestante;
+        public double ValorTotal { get; set; }
+        public double ValorPago { get; set; }
+        public double ValorRestante { get; set; }
     }
 }

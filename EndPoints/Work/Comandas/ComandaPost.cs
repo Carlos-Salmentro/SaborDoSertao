@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
+using SaborDoSertão.Domain.Enums;
 using SaborDoSertão.EndPoints.Work.Mesas;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Comandas
@@ -34,7 +35,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
             return Results.NotFound("Nenhuma mesa encontrada com o número: " + id);
 
             comanda.MesaId = id;
-            mesa.Status = InfraEstrutura.Enum.Status.EmUso;
+            mesa.Status = Status.EmUso;
 
             context.SaveChanges();
             string uri = MesasGetAll.Template + "/" + mesa.Id;

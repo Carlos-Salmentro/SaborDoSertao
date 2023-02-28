@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.Domain;
 using SaborDoSertão.InfraNet;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
-namespace SaborDoSertão.InfraEstrutura
+namespace SaborDoSertão.Domain
 {
     [Table("PedidosTable")]
     public class Pedido
@@ -15,7 +14,7 @@ namespace SaborDoSertão.InfraEstrutura
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [ForeignKey("ComandaId")]
-        public int ComandaId;
+        public int ComandaId {get; set;}
         [ForeignKey("NomeProduto")]
         public string NomeProduto { get; set; }
         [ForeignKey("ProdutoId")]

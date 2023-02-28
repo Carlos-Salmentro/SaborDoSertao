@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.InfraEstrutura;
+using SaborDoSertão.Domain;
 using SaborDoSertão.InfraNet;
 using System.Collections.Generic;
 
@@ -19,7 +19,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             if (mesa == null)
                 return Results.NotFound("Nenhuma mesa encontrada com o número: " + MesaId);
 
-            var comandas = context.ComandasTable.Where(x => x.MesaId == MesaId);
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId == MesaId).ToList();
 
             List<ComandaResponse> response = new List<ComandaResponse>();
 
@@ -31,8 +31,6 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
                     Abertura = comanda.Abertura,
                     Identificador = comanda.Identificador,
                     MesaId = comanda.MesaId,
-                    //Pedido = new List<Pedido>(context.PedidosTable.Where(x => x.ComandaId == comanda.Id).ToList()),
-                    //Fechamento = x.Fechamento
                 };
 
                 response.Add(resp);

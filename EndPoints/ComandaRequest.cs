@@ -1,4 +1,4 @@
-﻿using SaborDoSertão.InfraEstrutura;
+﻿using SaborDoSertão.Domain;
 
 namespace SaborDoSertão.EndPoints
 {

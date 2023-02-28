@@ -1,6 +1,5 @@
 ﻿using SaborDoSertão.InfraNet;
-using SaborDoSertão.InfraEstrutura;
-using SaborDoSertão.InfraEstrutura.Enum;
+using SaborDoSertão.Domain.Enums;
 using SaborDoSertão.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

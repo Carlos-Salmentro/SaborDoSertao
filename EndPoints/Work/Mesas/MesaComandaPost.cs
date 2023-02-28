@@ -1,30 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain;
+using SaborDoSertão.Domain.Enums;
+using SaborDoSertão.EndPoints.RequestsResponses;
 using SaborDoSertão.FinanceiroInfo;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Mesas
 {
     public class MesaComandaPost
     {
-        public static string Template => "/Mesas/{id}";
+        public static string Template => "/Mesas/{mesaId}";
         public static string[] Methods = new string[] { HttpMethod.Post.ToString() };
         public static Delegate Handler => Action;
         
-        public static IResult Action([FromRoute] int id, [FromBody] Comanda comanda, [FromServices] AppDBContext context)
+        public static IResult Action([FromRoute] int mesaId, [FromBody] IdentificadorRequest identificador, [FromServices] AppDBContext context)
         {
-           Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
+           Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == mesaId);
 
             if(mesa == null)
-                return Results.NotFound(id);
+                return Results.NotFound(mesaId);
 
-            Comanda comanda1 = new Comanda { Identificador = comanda.Identificador, MesaId = id, Abertura = DateTime.Now, 
-                ValorPago = 0.0, ValorRestante = 0.0, 
-                ValorTotal = 0.0 };
+            Comanda comanda = new Comanda { Identificador = identificador.Identificador, MesaId = mesaId, Abertura = DateTime.Now, 
+                ValorPago = 0.0, ValorRestante = 0.0, ValorTotal = 0.0 };
 
-            mesa.Comanda.Add(comanda1);
-
-            mesa.Status = InfraEstrutura.Enum.Status.EmUso;
+            mesa.Status = Status.EmUso;
             
             context.ComandasTable.Add(comanda);
             

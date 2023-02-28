@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaborDoSertão.Domain.Enums;
 using SaborDoSertão.EndPoints;
 using SaborDoSertão.EndPoints.Work.Mesas;
-using SaborDoSertão.InfraEstrutura.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SaborDoSertão.InfraEstrutura
+namespace SaborDoSertão.Domain
 {
     [Table("Mesas")]
     public class Mesa
@@ -13,8 +13,7 @@ namespace SaborDoSertão.InfraEstrutura
         [Key]
         public int Id { get; set; }
         public Status Status { get; set; }
-        public List<Comanda>? Comanda = new List<Comanda>();
-
+        
         protected Mesa() { }
 
         public Mesa(int id)
@@ -23,10 +22,10 @@ namespace SaborDoSertão.InfraEstrutura
             Status = Status.Disponivel;
         }
 
-        
 
-        
 
-        
+
+
+
     }
 }

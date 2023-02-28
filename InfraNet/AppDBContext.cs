@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.Domain;
 using Microsoft.EntityFrameworkCore.Internal;

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.Domain;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 using System.Linq;
 

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.InfraEstrutura;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Mesas
@@ -14,7 +13,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
         {
             var mesas = context.Mesas.ToList();
 
-            var response = mesas.Select(x => new MesaResponse { MesaId = x.Id, Status = x.Status, Comanda = x.Comanda });
+            var response = mesas.Select(x => new MesaResponse { MesaId = x.Id, Status = x.Status});
 
             return Results.Ok(response);
 

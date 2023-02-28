@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SaborDoSertão.InfraEstrutura;
+using SaborDoSertão.Domain;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Mesas
@@ -12,14 +12,11 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
 
         public static IResult Action([FromServices] AppDBContext context, [FromRoute] int id)
         {
-            Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
-            if (mesa == null)
-                return Results.NotFound("Nenhuma mesa encontrada com o número " + id);
-
+            List<Comanda> comandas= context.ComandasTable.Where(x => x.MesaId== id).ToList();
 
             List<ComandaResponse> list = new List<ComandaResponse>();
 
-            foreach (Comanda comanda in mesa.Comanda)
+            foreach (Comanda comanda in comandas)
             {
                 ComandaResponse comandaResponse = new ComandaResponse
                 {
@@ -38,11 +35,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
 
         public static IResult ImprimirComandas([FromRoute] int id, [FromServices] AppDBContext context)
         {
-            Mesa mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
-            if (mesa == null)
-                return Results.NotFound(id);
-
-            List<Comanda> comandas = mesa.Comanda;
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId == id).ToList();
             if (comandas == null)
                 return Results.NotFound();
 
