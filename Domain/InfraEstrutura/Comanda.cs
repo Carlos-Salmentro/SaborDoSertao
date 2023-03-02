@@ -7,7 +7,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SaborDoSertão.Domain
+namespace SaborDoSertão.InfraEstrutura
 {
     [Table("ComandasTable")]
     public class Comanda
@@ -27,7 +27,7 @@ namespace SaborDoSertão.Domain
 
         public Comanda() { }
 
-        public Comanda(int mesaId, string? identificador)
+        public Comanda(int mesaId, string identificador)
         {
             MesaId = mesaId;
             Identificador = identificador;

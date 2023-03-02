@@ -55,7 +55,9 @@ app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.H
 app.MapMethods(MesasComandaPedidoPost.Template, MesasComandaPedidoPost.Methods, MesasComandaPedidoPost.Handler);
 
 app.MapMethods(ComandasGetAll.Template, ComandasGetAll.Methods, ComandasGetAll.Handler);
-
+app.MapMethods(ComandaPost.Template, ComandaPost.Methods, ComandaPost.Handler);
+app.MapMethods(ComandaPutPedido.Template, ComandaPutPedido.Methods, ComandaPutPedido.Handler);
+app.MapMethods(ComandaGet.Template, ComandaGet.Methods, ComandaGet.Handler);
 
 app.Run();
 

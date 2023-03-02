@@ -25,15 +25,9 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
 
             foreach (var comanda in comandas)
             {
-                ComandaResponse resp = new ComandaResponse
-                {
-                    Id = comanda.Id,
-                    Abertura = comanda.Abertura,
-                    Identificador = comanda.Identificador,
-                    MesaId = comanda.MesaId,
-                };
+                ComandaResponse comandaResponse = new ComandaResponse(comanda);
 
-                response.Add(resp);
+                response.Add(comandaResponse);
             }
 
             return Results.Ok(response);

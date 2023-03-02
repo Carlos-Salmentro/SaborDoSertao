@@ -12,5 +12,19 @@ namespace SaborDoSertão.EndPoints
         public double ValorTotal { get; set; }
         public double ValorPago { get; set; }
         public double ValorRestante { get; set; }
+
+        public ComandaResponse(Comanda comanda)
+        {
+            Id = comanda.Id;
+            MesaId= comanda.MesaId;
+            Identificador = comanda.Identificador;
+            Abertura= comanda.Abertura;
+            Fechamento= comanda.Fechamento;
+            ValorTotal = comanda.ValorTotal;
+            ValorPago = comanda.ValorPago;
+            ValorRestante= comanda.ValorRestante;
+        }
     }
+
+    
 }

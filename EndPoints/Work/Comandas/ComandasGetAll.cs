@@ -17,19 +17,11 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
             
             foreach(Comanda comanda in comandas)
             {
-                ComandaResponse comandaResponse1 = new ComandaResponse
-                {
-                    Id = comanda.Id,
-                    Identificador = comanda.Identificador,
-                    Abertura = comanda.Abertura,
-                    Fechamento = comanda.Fechamento,
-                    MesaId = comanda.MesaId,
-                    ValorPago = comanda.ValorPago,
-                    ValorRestante = comanda.ValorRestante,
-                    ValorTotal = comanda.ValorTotal
-                };
+                ComandaResponse comandaResponse1 = new ComandaResponse(comanda);
+                comandaResponse.Add(comandaResponse1);
+               
             }
-            return Results.Ok(comandaResponse);
+            return Results.Ok(comandaResponse.ToList().OrderBy(x => x.MesaId).ThenBy(x => x.MesaId == null));
         }
 
         public static void Select(Comanda comanda, HttpResponse redirectResponse)

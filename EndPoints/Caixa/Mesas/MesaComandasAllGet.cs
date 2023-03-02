@@ -18,14 +18,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
 
             foreach (Comanda comanda in comandas)
             {
-                ComandaResponse comandaResponse = new ComandaResponse
-                {
-                    Id = comanda.Id,
-                    Abertura = comanda.Abertura,
-                    Identificador = comanda.Identificador,
-                    MesaId = comanda.MesaId,
-                    
-                };
+                ComandaResponse comandaResponse = new ComandaResponse(comanda);
 
                 list.Add(comandaResponse);
             };

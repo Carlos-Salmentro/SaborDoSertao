@@ -15,19 +15,11 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
             List<ComandaResponse> response = new List<ComandaResponse>();
 
-            foreach (Comanda x in comandas)
+            foreach (Comanda comanda in comandas)
             {
-                ComandaResponse resp = new ComandaResponse
-                {
-                    Id = x.Id,
-                    MesaId = x.MesaId,
-                    Abertura = x.Abertura,
-                    Fechamento = x.Fechamento,
-                    Identificador = x.Identificador,
-                };
+                ComandaResponse comandaResponse = new ComandaResponse(comanda);
 
-                response.Add(resp);
-
+                response.Add(comandaResponse);
             }
 
             return Results.Ok(response.OrderBy(x => x.MesaId == null).ThenBy(x => x.Identificador));

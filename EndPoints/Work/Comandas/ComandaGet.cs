@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.Domain;
+using SaborDoSertão.EndPoints.RequestsResponses;
 using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Work.Comandas
@@ -22,15 +23,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
             if (comanda == null)
                 return Results.NotFound("Nenhuma comanda encontrada com o identificador: " + identificador);
 
-            ComandaResponse comandaResponse = new ComandaResponse
-            {
-                Id = comanda.Id,
-                Identificador = comanda.Identificador,
-                Abertura = comanda.Abertura,
-                MesaId = comanda.MesaId,
-                //Pedido = new List<Pedido>(context.PedidosTable.Select()
-                
-            };
+            ComandaResponse comandaResponse = new ComandaResponse(comanda);
 
             return Results.Ok(comandaResponse);
 
