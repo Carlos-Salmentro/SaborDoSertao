@@ -4,18 +4,18 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Admin.Produtos
 {
-    public class ProdutoPut
+    public class AdminProdutoPut
     {
-        public static string Template => "/Admin/Produtos/{id}";
+        public static string Template => "/Admin/Produtos/{produtoId}";
         public static string[] Methods = { HttpMethods.Put.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromServices] AppDBContext context, [FromRoute] Guid id, [FromBody] ProdutoRequest produtoAlteracoes)
+        public static IResult Action([FromServices] AppDBContext context, [FromRoute] Guid produtoId, [FromBody] ProdutoRequest produtoAlteracoes)
         {
-            Produto produto = context.ProdutosTable.FirstOrDefault(x => x.Id == id);
+            Produto produto = context.ProdutosTable.FirstOrDefault(x => x.Id == produtoId);
 
             if (produto == null)
-                return Results.NotFound(id);
+                return Results.NotFound(produtoId);
 
             produto.Nome = produtoAlteracoes.Nome;
             produto.Tamanho = produtoAlteracoes.Tamanho;

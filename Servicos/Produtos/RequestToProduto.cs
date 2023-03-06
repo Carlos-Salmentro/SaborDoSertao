@@ -13,7 +13,7 @@ namespace SaborDoSertão.Serviços.Produtos
             return produto;
         }
 
-        public static ProdutoResponse ToResponse(this Produto produto)
+        public static ProdutoResponse ToProdutoResponse(this Produto produto)
         {
             ProdutoResponse produtoResponse = new ProdutoResponse { Id = produto.Id, Categoria = produto.Categoria, Custo = produto.Custo, 
                 Descricao = produto.Descricao, Nome = produto.Nome, Preco = produto.Preco, 

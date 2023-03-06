@@ -5,7 +5,7 @@ using SaborDoSertão.Serviços.Produtos;
 
 namespace SaborDoSertão.EndPoints.Admin.Produtos
 {
-    public class ProdutoPost
+    public class AdminProdutoPost
     {
         public static string Template => "/Admin/Produtos";
         public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
@@ -13,7 +13,7 @@ namespace SaborDoSertão.EndPoints.Admin.Produtos
 
         public static IResult Action([FromBody]ProdutoRequest produtoRequest, [FromServices] AppDBContext context)
         {
-            Produto produto = produtoRequest.ToProduto();
+            Produto produto = new Produto(produtoRequest);
 
             context.ProdutosTable.Add(produto);
             context.SaveChanges();

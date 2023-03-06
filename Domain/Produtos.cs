@@ -11,7 +11,7 @@ namespace SaborDoSertão.Domain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        
+
         public Guid Id { get; set; } = new Guid(Guid.NewGuid().ToString());
         public string Nome { get; set; }
         public double? Custo { get; set; }
@@ -32,6 +32,17 @@ namespace SaborDoSertão.Domain
             Descricao = descricao;
             Tamanho = tamanho;
             QuantServe = quantServe;
+        }
+
+        public Produto(ProdutoRequest produtoRequest)
+        {
+            Nome = produtoRequest.Nome;
+            Preco = produtoRequest.Preco;
+            Categoria = produtoRequest.Categoria;
+            Custo = produtoRequest.Custo;
+            Descricao = produtoRequest.Descricao;
+            Tamanho = produtoRequest.Tamanho;
+            QuantServe = produtoRequest.QuantServe;
         }
 
     }

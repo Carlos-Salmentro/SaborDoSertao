@@ -4,7 +4,7 @@ namespace SaborDoSertão.EndPoints
 {
     public record ProdutoRequest
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Nome { get; set; }
         public double? Custo { get; set; }
         public double Preco { get; set; }

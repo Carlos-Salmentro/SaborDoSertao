@@ -3,7 +3,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Admin.Mesas
 {
-    public class MesasDelete
+    public class AdminMesasDelete
     {
         public static string Template => "/Admin/Mesas/{id}";
         public static string[] Methods => new string[] { HttpMethods.Delete.ToString() };

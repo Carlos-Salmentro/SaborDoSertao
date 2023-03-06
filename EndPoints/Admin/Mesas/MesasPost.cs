@@ -4,7 +4,7 @@ using SaborDoSertão.Domain;
 
 namespace SaborDoSertão.EndPoints.Admin.Mesas
 {
-    public class MesasPost
+    public class AdminMesasPost
     {
         public static string Template => "/Admin/Mesas";
         public static string[] Methods => new string[] { HttpMethod.Post.ToString() };
@@ -12,7 +12,7 @@ namespace SaborDoSertão.EndPoints.Admin.Mesas
 
         public static IResult Action(AppDBContext context, [FromBody] MesaRequest request)
         {
-            var mesa = new Mesa(request.MesaId);
+            Mesa mesa = new Mesa(request.MesaId);
 
             var teste = context.Mesas.FirstOrDefault(x => x.Id == request.MesaId);
 
@@ -21,7 +21,7 @@ namespace SaborDoSertão.EndPoints.Admin.Mesas
                 context.Mesas.Add(mesa);
                 context.SaveChanges();
 
-                //colocar no Template o URI do GetMesas
+                //colocar no Template o URL do GetMesas
                 return Results.Created(Template, mesa);
             }
             else

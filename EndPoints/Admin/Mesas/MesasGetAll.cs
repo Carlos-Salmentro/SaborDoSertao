@@ -4,7 +4,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Admin.Mesas
 {
-    public class MesasGetAll
+    public class AdminMesasGetAll
     {
         public static string Template => "/Admin/Mesas";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
@@ -12,11 +12,12 @@ namespace SaborDoSertão.EndPoints.Admin.Mesas
 
         public static IResult Action([FromServices] AppDBContext context)
         {
-            List<Mesa> mesas = new List<Mesa>();
+            List<MesaResponse> mesas = new List<MesaResponse>();
 
             foreach (Mesa mesa in context.Mesas)
             {
-                mesas.Add(mesa);
+                MesaResponse mesaResponse= new MesaResponse {MesaId = mesa.Id, Status = mesa.Status };
+                mesas.Add(mesaResponse);
             }
 
             return Results.Ok(mesas);

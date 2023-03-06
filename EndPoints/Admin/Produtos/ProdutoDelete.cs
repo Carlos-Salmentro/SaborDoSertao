@@ -4,7 +4,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Admin.Produtos
 {
-    public class ProdutoDelete
+    public class AdminProdutoDelete
     {
         public static string Template => "/Admin/Produtos/{id}";
         public static string[] Methods = new string[] { HttpMethod.Delete.ToString() };

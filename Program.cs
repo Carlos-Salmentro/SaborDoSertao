@@ -4,7 +4,7 @@ using SaborDoSertão.EndPoints.Admin.Produtos;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
-using SaborDoSertão.Servicos.SeedService;
+//using SaborDoSertão.Servicos.SeedService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,20 +40,21 @@ app.MapControllers();
 
 
 //admin
-app.MapMethods(MesasPost.Template, MesasPost.Methods, MesasPost.Handler);
-app.MapMethods(MesasDelete.Template, MesasDelete.Methods, MesasDelete.Handler);
-app.MapMethods(ProdutoPost.Template, ProdutoPost.Methods, ProdutoPost.Handler);
-app.MapMethods(ProdutoDelete.Template, ProdutoDelete.Methods, ProdutoDelete.Handler);
-app.MapMethods(ProdutoPut.Template, ProdutoPut.Methods, ProdutoPut.Handler);
-app.MapMethods(ProdutosGet.Template, ProdutosGet.Methods, ProdutosGet.Handler);
-app.MapMethods(SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Template, SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Methods, SaborDoSertão.EndPoints.Admin.Mesas.MesasGetAll.Handler);
+app.MapMethods(AdminMesasPost.Template, AdminMesasPost.Methods, AdminMesasPost.Handler);
+app.MapMethods(AdminMesasDelete.Template, AdminMesasDelete.Methods, AdminMesasDelete.Handler);
+app.MapMethods(AdminProdutoPost.Template, AdminProdutoPost.Methods, AdminProdutoPost.Handler);
+app.MapMethods(AdminProdutoDelete.Template, AdminProdutoDelete.Methods, AdminProdutoDelete.Handler);
+app.MapMethods(AdminProdutoPut.Template, AdminProdutoPut.Methods, AdminProdutoPut.Handler);
+app.MapMethods(AdminProdutosGetAll.Template, AdminProdutosGetAll.Methods, AdminProdutosGetAll.Handler);
+app.MapMethods(AdminMesasGetAll.Template, AdminMesasGetAll.Methods, AdminMesasGetAll.Handler);
 
-//work
-app.MapMethods(SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Template, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Methods, SaborDoSertão.EndPoints.Work.Mesas.MesasGetAll.Handler);
+//work mesas
+app.MapMethods(MesasGetAll.Template, MesasGetAll.Methods, MesasGetAll.Handler);
 app.MapMethods(MesaComandaPost.Template, MesaComandaPost.Methods, MesaComandaPost.Handler);
 app.MapMethods(MesaComandaGet.Template, MesaComandaGet.Methods, MesaComandaGet.Handler);
 app.MapMethods(MesasComandaPedidoPost.Template, MesasComandaPedidoPost.Methods, MesasComandaPedidoPost.Handler);
 
+//work comandas
 app.MapMethods(ComandasGetAll.Template, ComandasGetAll.Methods, ComandasGetAll.Handler);
 app.MapMethods(ComandaPost.Template, ComandaPost.Methods, ComandaPost.Handler);
 app.MapMethods(ComandaPutPedido.Template, ComandaPutPedido.Methods, ComandaPutPedido.Handler);

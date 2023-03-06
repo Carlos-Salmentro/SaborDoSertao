@@ -5,7 +5,7 @@ using SaborDoSertão.Serviços.Produtos;
 
 namespace SaborDoSertão.EndPoints.Admin.Produtos
 {
-    public class ProdutosGet
+    public class AdminProdutosGetAll
     {
         public static string Template => "/Admin/Produtos/{page}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
@@ -20,7 +20,7 @@ namespace SaborDoSertão.EndPoints.Admin.Produtos
 
             foreach(Produto p in produtos)
             {
-                ProdutoResponse response = p.ToResponse();
+                ProdutoResponse response = p.ToProdutoResponse();
                 produtoResponse.Add(response);
             }
 
