@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using SaborDoSertão.EndPoints.Admin.Comandas;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
+using SaborDoSertão.EndPoints.Caixa.Comandas;
+using SaborDoSertão.EndPoints.Caixa.Mesas;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
@@ -40,13 +43,20 @@ app.MapControllers();
 
 
 //admin
+app.MapMethods(AdminMesasGetAll.Template, AdminMesasGetAll.Methods, AdminMesasGetAll.Handler);
 app.MapMethods(AdminMesasPost.Template, AdminMesasPost.Methods, AdminMesasPost.Handler);
 app.MapMethods(AdminMesasDelete.Template, AdminMesasDelete.Methods, AdminMesasDelete.Handler);
 app.MapMethods(AdminProdutoPost.Template, AdminProdutoPost.Methods, AdminProdutoPost.Handler);
 app.MapMethods(AdminProdutoDelete.Template, AdminProdutoDelete.Methods, AdminProdutoDelete.Handler);
 app.MapMethods(AdminProdutoPut.Template, AdminProdutoPut.Methods, AdminProdutoPut.Handler);
 app.MapMethods(AdminProdutosGetAll.Template, AdminProdutosGetAll.Methods, AdminProdutosGetAll.Handler);
-app.MapMethods(AdminMesasGetAll.Template, AdminMesasGetAll.Methods, AdminMesasGetAll.Handler);
+app.MapMethods(AdminComandasGet.Template, AdminComandasGet.Methods, AdminComandasGet.Handler);
+
+//caixa
+app.MapMethods(CaixaMesasGetAll.Template, CaixaMesasGetAll.Methods, CaixaMesasGetAll.Action);
+app.MapMethods(CaixaComandasGetAll.Template, CaixaComandasGetAll.Methods, CaixaComandasGetAll.Hanlder);
+app.MapMethods(CaixaComandaGet.Template, CaixaComandaGet.Methods, CaixaComandaGet.Handler);
+
 
 //work mesas
 app.MapMethods(MesasGetAll.Template, MesasGetAll.Methods, MesasGetAll.Handler);

@@ -14,27 +14,25 @@ namespace SaborDoSertão.FinanceiroInfo
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int IdentificacaoComanda { get; set; }
+        [ForeignKey("ComandaId")]
+        public int ComandaId { get; set; }
         public int? MesaId { get; set; }
         public string? Identificador { get; set; }
-        public List<Pedido> Pedido { get; set; }
+        [ForeignKey("FechamentoId")]
+        public int FechamentoId { get; set; }
         public DateTime Abertura { get; set; }
         public DateTime Fechamento { get; set; }
         public double ValorTotal { get; set; }
-        public List<Fechamento> FechamentoInfo { get; set; }
-
+        
         protected Financeiro() { }
 
-        public Financeiro(int identificacaoComanda, int? mesaId, string? identificador, List<Pedido> pedido, DateTime abertura, DateTime fechamento, double valorTotal, List<Fechamento> fechamentoInfo, double valorPago, double valorRestante)
+        public Financeiro(int comandaId, AppDBContext context)
         {
-            IdentificacaoComanda = identificacaoComanda;
-            MesaId = mesaId;
-            Identificador = identificador;
-            Pedido = pedido;
-            Abertura = abertura;
-            Fechamento = fechamento;
-            ValorTotal = valorTotal;
-            FechamentoInfo = fechamentoInfo;
+            Comanda comanda = context.ComandasTable.SingleOrDefault(x => x.Id == comandaId);
+            //List<Pagamento> pagamentos = context.PagamentosTable.Where(x => x.ComandaId == comanda.Id).ToList();
+
+            
+            
         }
     }
 }

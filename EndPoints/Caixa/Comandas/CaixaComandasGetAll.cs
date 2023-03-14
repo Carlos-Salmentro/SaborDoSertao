@@ -3,7 +3,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
-    public class ComandasGetAll
+    public class CaixaComandasGetAll
     {
         public static string Template => "Caixa/Comandas";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
@@ -24,12 +24,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
             return Results.Ok(response.OrderBy(x => x.MesaId == null).ThenBy(x => x.Identificador));
         }
-
-        public static void SelecionarComanda(int id, HttpResponse response)
-        {
-            string url = Template + "/" + id;
-            response.Redirect(url);
-        }
+                
     }
 }
 

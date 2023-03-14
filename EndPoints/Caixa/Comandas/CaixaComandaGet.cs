@@ -4,7 +4,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
-    public class ComandaGet
+    public class CaixaComandaGet
     {
         public static string Template => "Caixa/Comanda/{ComandaId}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };

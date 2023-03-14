@@ -4,18 +4,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SaborDoSertão.FinanceiroInfo
 {
-    public class Fechamento
+    [Table("PagamentosTable")]
+    public class Pagamento
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [ForeignKey("ComandaId")]
+        public int ComandaId { get; set; }
         public FormaPagamento FormaDePagamento { get; set; }
         public double ValorPago { get; set; }
 
-        private Fechamento() { }
+        private Pagamento() { }
 
-        public Fechamento(FormaPagamento formaDePagamento, double valorPago)
+        public Pagamento(int comandaId, FormaPagamento formaDePagamento, double valorPago)
         {
+            ComandaId = comandaId;
             FormaDePagamento = formaDePagamento;
             ValorPago = valorPago;
         }
