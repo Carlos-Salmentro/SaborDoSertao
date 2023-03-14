@@ -57,6 +57,7 @@ app.MapMethods(CaixaMesasGetAll.Template, CaixaMesasGetAll.Methods, CaixaMesasGe
 app.MapMethods(CaixaMesaComandasGet.Template, CaixaMesaComandasGet.Methods, CaixaMesaComandasGet.Handler);
 app.MapMethods(CaixaComandasGetAll.Template, CaixaComandasGetAll.Methods, CaixaComandasGetAll.Hanlder);
 app.MapMethods(CaixaComandaGet.Template, CaixaComandaGet.Methods, CaixaComandaGet.Handler);
+app.MapMethods(CaixaComandaPagamentoPut.Template, CaixaComandaPagamentoPut.Methods, CaixaComandaPagamentoPut.Handler);
 
 
 //work mesas

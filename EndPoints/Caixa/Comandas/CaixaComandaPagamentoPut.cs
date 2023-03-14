@@ -27,6 +27,8 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
             comanda.ValorPago += pagamentoRequest.ValorPago;
             comanda.ValorRestante -= pagamentoRequest.ValorPago;
 
+            context.SaveChanges();
+
             //if (comanda.ValorRestante <= 0.0)
             //{
                 
