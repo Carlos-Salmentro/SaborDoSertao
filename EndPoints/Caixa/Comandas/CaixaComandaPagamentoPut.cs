@@ -5,34 +5,34 @@ using SaborDoSertão.FinanceiroInfo.Enum;
 using SaborDoSertão.InfraNet;
 using System.Net.NetworkInformation;
 
-namespace SaborDoSertão.EndPoints.Caixa
+namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
-    public class CaixaPagamento
+    public class CaixaComandaPagamentoPut
     {
         public static string Template => "/Caixa/Pagamento/{comandaId}";
         public static string[] Methods = new string[] { HttpMethod.Put.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromRoute] int comandaId, [FromBody] FormaPagamento formaPagamento, [FromBody] double valorPago,
+        public static IResult Action([FromRoute] int comandaId, [FromBody] PagamentoRequest pagamentoRequest,
             [FromServices] AppDBContext context)
         {
             Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
-            if(comanda == null)
+            if (comanda == null)
             {
                 return Results.NotFound("Nenhuma comanda com o Id: " + comandaId + " encontrada. \nSelecione novamente a comanda que deseja pagar.");
             }
 
-            Pagamento pagamento = new Pagamento(comandaId, formaPagamento, valorPago);
+            Pagamento pagamento = new Pagamento(comandaId, pagamentoRequest.FormaPagamento, pagamentoRequest.ValorPago);
             context.PagamentosTable.Add(pagamento);
-            comanda.ValorPago += valorPago;
-            comanda.ValorRestante -= valorPago;
+            comanda.ValorPago += pagamentoRequest.ValorPago;
+            comanda.ValorRestante -= pagamentoRequest.ValorPago;
 
-            if(comanda.ValorRestante <= 0.0)
-            {
-                List<Pagamento> fechamentos = context.PagamentosTable.Where(x => x.ComandaId == comandaId).ToList();
+            //if (comanda.ValorRestante <= 0.0)
+            //{
+                
 
-                    
-            }
+
+            //}
 
             return Results.Ok();
         }
