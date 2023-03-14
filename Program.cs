@@ -53,7 +53,8 @@ app.MapMethods(AdminProdutosGetAll.Template, AdminProdutosGetAll.Methods, AdminP
 app.MapMethods(AdminComandasGet.Template, AdminComandasGet.Methods, AdminComandasGet.Handler);
 
 //caixa
-app.MapMethods(CaixaMesasGetAll.Template, CaixaMesasGetAll.Methods, CaixaMesasGetAll.Action);
+app.MapMethods(CaixaMesasGetAll.Template, CaixaMesasGetAll.Methods, CaixaMesasGetAll.Handler);
+app.MapMethods(CaixaMesaComandaGet.Template, CaixaMesaComandaGet.Methods, CaixaMesaComandaGet.Handler);
 app.MapMethods(CaixaComandasGetAll.Template, CaixaComandasGetAll.Methods, CaixaComandasGetAll.Hanlder);
 app.MapMethods(CaixaComandaGet.Template, CaixaComandaGet.Methods, CaixaComandaGet.Handler);
 

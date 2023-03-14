@@ -4,15 +4,15 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Mesas
 {
-    public class MesaComandasGetAll
+    public class CaixaMesaComandaGet
     {
-        public static string Template => "/Caixa/Mesas/{id}";
+        public static string Template => "/Caixa/Mesas/{mesaId}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromServices] AppDBContext context, [FromRoute] int id)
+        public static IResult Action([FromServices] AppDBContext context, [FromRoute] int mesaId)
         {
-            List<Comanda> comandas= context.ComandasTable.Where(x => x.MesaId== id).ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId== mesaId).ToList();
 
             List<ComandaResponse> list = new List<ComandaResponse>();
 

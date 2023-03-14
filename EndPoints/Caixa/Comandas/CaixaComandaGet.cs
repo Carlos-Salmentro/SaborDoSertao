@@ -6,20 +6,19 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
     public class CaixaComandaGet
     {
-        public static string Template => "Caixa/Comanda/{ComandaId}";
+        public static string Template => "Caixa/Comanda/{comandaId}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromRoute] int ComandaId, AppDBContext context)
+        public static IResult Action([FromRoute] int comandaId, AppDBContext context)
         {
-            Comanda comanda = 
-                context.ComandasTable.FirstOrDefault(x => x.Id == ComandaId);
+            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
 
             if (comanda == null)
-                return Results.NotFound(ComandaId);
+                return Results.NotFound(comandaId);
 
             ComandaResponse comandaResponse = new ComandaResponse(comanda);
-            
+
             return Results.Ok(comandaResponse);
 
         }
