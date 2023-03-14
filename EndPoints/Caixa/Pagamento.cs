@@ -22,14 +22,14 @@ namespace SaborDoSertão.EndPoints.Caixa
                 return Results.NotFound("Nenhuma comanda com o Id: " + comandaId + " encontrada. \nSelecione novamente a comanda que deseja pagar.");
             }
 
-            Pagamento fechamento = new Pagamento(comandaId, formaPagamento, valorPago);
-            context.FechamentosTable.Add(fechamento);
+            Pagamento pagamento = new Pagamento(comandaId, formaPagamento, valorPago);
+            context.PagamentosTable.Add(pagamento);
             comanda.ValorPago += valorPago;
             comanda.ValorRestante -= valorPago;
 
             if(comanda.ValorRestante <= 0.0)
             {
-                List<Pagamento> fechamentos = context.FechamentosTable.Where(x => x.ComandaId == comandaId).ToList();
+                List<Pagamento> fechamentos = context.PagamentosTable.Where(x => x.ComandaId == comandaId).ToList();
 
                     
             }

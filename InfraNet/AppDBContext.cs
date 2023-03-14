@@ -15,7 +15,7 @@ namespace SaborDoSertão.InfraNet
         public DbSet<Comanda> ComandasTable { get; set; }
         public DbSet<Produto> ProdutosTable { get; set; }
         public DbSet<Pedido> PedidosTable { get; set; }
-        public DbSet<Pagamento> FechamentosTable { get; set; }
+        public DbSet<Pagamento> PagamentosTable { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -4,7 +4,7 @@ using SaborDoSertão.InfraNet;
 
 namespace SaborDoSertão.EndPoints.Caixa.Mesas
 {
-    public class CaixaMesaComandaGet
+    public class CaixaMesaComandasGet
     {
         public static string Template => "/Caixa/Mesas/{mesaId}";
         public static string[] Methods = new string[] { HttpMethod.Get.ToString() };
