@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaborDoSertão.Domain;
+using SaborDoSertão.Domain.Enums;
 using SaborDoSertão.FinanceiroInfo;
-using SaborDoSertão.FinanceiroInfo.Enum;
 using SaborDoSertão.InfraNet;
-using System.Net.NetworkInformation;
+
 
 namespace SaborDoSertão.EndPoints.Caixa.Comandas
 {
@@ -26,15 +26,30 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
             context.PagamentosTable.Add(pagamento);
             comanda.ValorPago += pagamentoRequest.ValorPago;
             comanda.ValorRestante -= pagamentoRequest.ValorPago;
+            
+            //testando se comanda foi totalmente paga
+            if (comanda.ValorRestante <= 0.0)
+            {
+                comanda.Ativa = false;
+
+                int? mesaId = comanda.MesaId;
+                
+                //testando se a mesa tem comanda atrelada para deixar disponivel ou nao
+                if(mesaId != null)
+                {
+                    List<Comanda> comandas = new List<Comanda>(context.ComandasTable.Where(x => x.MesaId == mesaId).Where(x => x.Ativa == true));
+
+                    if(comandas.Count == 0)
+                    {
+                        Mesa mesa = context.Mesas.Single(x => x.Id == comanda.MesaId);
+                        mesa.Status = Status.Disponivel;
+                    }
+
+                }
+
+            }
 
             context.SaveChanges();
-
-            //if (comanda.ValorRestante <= 0.0)
-            //{
-                
-
-
-            //}
 
             return Results.Ok();
         }

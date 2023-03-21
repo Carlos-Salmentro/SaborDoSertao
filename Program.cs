@@ -7,7 +7,6 @@ using SaborDoSertão.EndPoints.Caixa.Mesas;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
-//using SaborDoSertão.Servicos.SeedService;
 
 var builder = WebApplication.CreateBuilder(args);
 

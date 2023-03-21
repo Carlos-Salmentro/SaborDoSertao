@@ -2,7 +2,7 @@
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.Domain;
 using Microsoft.EntityFrameworkCore.Internal;
-//using SaborDoSertão.Servicos.SeedService;
+using SaborDoSertão.Servicos.SeedService;
 
 namespace SaborDoSertão.InfraNet
 {
@@ -26,7 +26,7 @@ namespace SaborDoSertão.InfraNet
 
             base.OnModelCreating(modelBuilder);
                         
-            //new SeedService(modelBuilder).Seed();
+            new SeedService(modelBuilder).Seed();
 
             
         }

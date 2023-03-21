@@ -24,6 +24,8 @@ namespace SaborDoSertão.Domain
         public double ValorTotal { get; set; } = 0.0;
         public double ValorPago { get; set; } = 0.0;
         public double ValorRestante { get; set; } = 0.0;
+        [Column("Ativa")]
+        public bool Ativa { get; set; }
 
         public Comanda() { }
 
@@ -31,6 +33,8 @@ namespace SaborDoSertão.Domain
         {
             MesaId = mesaId;
             Identificador = identificador;
+            Abertura = DateTime.Now;
+            Ativa = true;
 
         }
 
@@ -54,6 +58,7 @@ namespace SaborDoSertão.Domain
             MesaId = mesaId;
             Identificador = identificador;
             Abertura = DateTime.Now;
+            Ativa = true;
         }
 
         //public ComandaResponse FindByMesaId(int mesaId, AppDBContext context)
