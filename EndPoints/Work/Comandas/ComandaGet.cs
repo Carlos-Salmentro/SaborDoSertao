@@ -18,7 +18,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
                 return Results.BadRequest("É necessário informar a identificação da comanda para acessa-la");
             }
 
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Identificador == identificador);
+            Comanda comanda = context.ComandasTable.Where(x => x.Ativa == true).FirstOrDefault(x => x.Identificador == identificador);
 
             if (comanda == null)
                 return Results.NotFound("Nenhuma comanda encontrada com o identificador: " + identificador);

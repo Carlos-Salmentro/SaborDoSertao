@@ -17,7 +17,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
                 return Results.NotFound("Nenhum pedido para adicionar à comanda");
             }
 
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
+            Comanda comanda = context.ComandasTable.Where(x => x.Ativa == true).FirstOrDefault(x => x.Id == comandaId);
 
             if (comanda == null)
             {

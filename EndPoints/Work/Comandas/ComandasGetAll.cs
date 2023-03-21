@@ -12,7 +12,7 @@ namespace SaborDoSertão.EndPoints.Work.Comandas
 
         public static IResult Action(AppDBContext context)
         {
-            List<Comanda> comandas = context.ComandasTable.OrderBy(x => x.MesaId == null).OrderByDescending(x => x.Identificador).ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.Ativa == true).OrderBy(x => x.MesaId == null).OrderByDescending(x => x.Identificador).ToList();
             List<ComandaResponse> comandaResponse = new List<ComandaResponse>();
             
             foreach(Comanda comanda in comandas)
