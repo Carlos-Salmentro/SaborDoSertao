@@ -12,6 +12,7 @@ namespace SaborDoSertão.EndPoints
         public double ValorTotal { get; set; }
         public double ValorPago { get; set; }
         public double ValorRestante { get; set; }
+        public bool Ativa { get; set; }
 
         public ComandaResponse(Comanda comanda)
         {
@@ -23,6 +24,7 @@ namespace SaborDoSertão.EndPoints
             ValorTotal = comanda.ValorTotal;
             ValorPago = comanda.ValorPago;
             ValorRestante= comanda.ValorRestante;
+            Ativa= comanda.Ativa;
         }
     }
 

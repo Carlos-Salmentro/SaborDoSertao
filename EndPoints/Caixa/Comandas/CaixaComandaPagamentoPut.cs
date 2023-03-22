@@ -51,7 +51,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
             context.SaveChanges();
 
-            return Results.Ok();
+            return Results.Ok("Comanda: " + comanda.Id + "Pago: " + pagamentoRequest.ValorPago);
         }
     }
 }
