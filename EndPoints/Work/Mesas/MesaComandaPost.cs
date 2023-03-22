@@ -20,8 +20,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             if(mesa == null)
                 return Results.NotFound(mesaId);
 
-            Comanda comanda = new Comanda { Identificador = identificador.Identificador, MesaId = mesaId, Abertura = DateTime.Now, 
-                ValorPago = 0.0, ValorRestante = 0.0, ValorTotal = 0.0 };
+            Comanda comanda = new Comanda(mesaId, identificador.Identificador);
 
             mesa.Status = Status.EmUso;
             
