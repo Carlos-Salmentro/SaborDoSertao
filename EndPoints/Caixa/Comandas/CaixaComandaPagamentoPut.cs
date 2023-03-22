@@ -13,8 +13,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
         public static string[] Methods = new string[] { HttpMethod.Put.ToString() };
         public static Delegate Handler = Action;
 
-        public static IResult Action([FromRoute] int comandaId, [FromBody] PagamentoRequest pagamentoRequest,
-            [FromServices] AppDBContext context)
+        public static IResult Action([FromRoute] int comandaId, [FromBody] PagamentoRequest pagamentoRequest, [FromServices] AppDBContext context)
         {
             Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
             if (comanda == null)
@@ -37,7 +36,8 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
                 //testando se a mesa tem comanda atrelada para deixar disponivel ou nao
                 if(mesaId != null)
                 {
-                    List<Comanda> comandas = new List<Comanda>(context.ComandasTable.Where(x => x.MesaId == mesaId).Where(x => x.Ativa == true));
+                    List<Comanda> comandas = new List<Comanda>(context.ComandasTable.Where(x => x.Ativa == true).Where(x => x.MesaId == mesaId));
+                    comandas.Remove(comanda);
 
                     if(comandas.Count == 0)
                     {

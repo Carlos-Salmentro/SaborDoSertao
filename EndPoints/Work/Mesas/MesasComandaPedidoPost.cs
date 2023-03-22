@@ -19,8 +19,9 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             if (mesa == null)
                 return Results.NotFound("Nenhuma mesa encontrada com o número: " + mesaId);
 
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
-            if(comanda == null)
+
+            Comanda comanda = context.ComandasTable.Where(x => x.Ativa == true).FirstOrDefault(x => x.Id == comandaId);
+            if (comanda == null)
             {
                 return Results.NotFound("Nenhuma comanda com o Id " + comandaId.ToString() + " encontrada!");
             }
