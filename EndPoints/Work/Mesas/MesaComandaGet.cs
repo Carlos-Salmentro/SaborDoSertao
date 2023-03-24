@@ -19,7 +19,7 @@ namespace SaborDoSertão.EndPoints.Work.Mesas
             if (mesa == null)
                 return Results.NotFound("Nenhuma mesa encontrada com o número: " + MesaId);
 
-            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId == MesaId).ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.Ativa == true).Where(x => x.MesaId == MesaId).ToList();
 
             List<ComandaResponse> response = new List<ComandaResponse>();
 
