@@ -15,7 +15,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
         public static IResult Action([FromRoute] int comandaId, [FromBody] PagamentoRequest pagamentoRequest, [FromServices] AppDBContext context)
         {
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
+            Comanda comanda = context.ComandasTable.Where(x => x.Ativa == true).FirstOrDefault(x => x.Id == comandaId);
             if (comanda == null)
             {
                 return Results.NotFound("Nenhuma comanda com o Id: " + comandaId + " encontrada. \nSelecione novamente a comanda que deseja pagar.");
