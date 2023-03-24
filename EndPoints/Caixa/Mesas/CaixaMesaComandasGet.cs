@@ -12,7 +12,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
 
         public static IResult Action([FromServices] AppDBContext context, [FromRoute] int mesaId)
         {
-            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId== mesaId).ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.Ativa == true).Where(x => x.MesaId== mesaId).ToList();
 
             List<ComandaResponse> list = new List<ComandaResponse>();
 
