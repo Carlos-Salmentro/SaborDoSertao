@@ -14,6 +14,8 @@ namespace SaborDoSertão.FinanceiroInfo
         public int ComandaId { get; set; }
         public FormaPagamento FormaDePagamento { get; set; }
         public double ValorPago { get; set; }
+        [Column("Data")]
+        public DateTime Data { get; set; }
 
         private Pagamento() { }
 
@@ -22,6 +24,7 @@ namespace SaborDoSertão.FinanceiroInfo
             ComandaId = comandaId;
             FormaDePagamento = formaDePagamento;
             ValorPago = valorPago;
+            Data = DateTime.Now;
         }
     }
 }

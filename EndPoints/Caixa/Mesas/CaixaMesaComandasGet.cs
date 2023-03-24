@@ -28,7 +28,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Mesas
 
         public static IResult ImprimirComandas([FromRoute] int id, [FromServices] AppDBContext context)
         {
-            List<Comanda> comandas = context.ComandasTable.Where(x => x.MesaId == id).ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.Ativa == true).Where(x => x.MesaId == id).ToList();
             if (comandas == null)
                 return Results.NotFound();
 
