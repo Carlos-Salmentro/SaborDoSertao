@@ -11,7 +11,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
 
         public static IResult Action(AppDBContext context)
         {
-            List<Comanda> comandas = context.ComandasTable.ToList();
+            List<Comanda> comandas = context.ComandasTable.Where(x => x.Ativa == true).ToList();
 
             List<ComandaResponse> response = new List<ComandaResponse>();
 
