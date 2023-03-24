@@ -15,7 +15,7 @@ namespace SaborDoSertão.EndPoints.Caixa.Comandas
         [HttpGet]
         public static IResult Action([FromRoute] int comandaId, AppDBContext context)
         {
-            Comanda comanda = context.ComandasTable.FirstOrDefault(x => x.Id == comandaId);
+            Comanda comanda = context.ComandasTable.Where(x => x.Ativa == true).FirstOrDefault(x => x.Id == comandaId);
 
             if (comanda == null)
                 return Results.NotFound(comandaId);
