@@ -24,7 +24,7 @@ namespace SaborDoSertão.FinanceiroInfo
             ComandaId = comandaId;
             FormaDePagamento = formaDePagamento;
             ValorPago = valorPago;
-            Data = DateTime.Now;
+            Data = DateTime.Now.ToLocalTime();
         }
     }
 }

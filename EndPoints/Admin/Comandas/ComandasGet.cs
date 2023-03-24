@@ -13,7 +13,7 @@ namespace SaborDoSertão.EndPoints.Admin.Comandas
         {
             List<Comanda> comandas= new List<Comanda>();
 
-            comandas = context.ComandasTable.ToList();
+            comandas = context.ComandasTable.Where(x => x.Ativa == true).ToList();
 
             List<ComandaResponse> comandasResponse= new List<ComandaResponse>();
 

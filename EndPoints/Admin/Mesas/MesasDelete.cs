@@ -15,7 +15,9 @@ namespace SaborDoSertão.EndPoints.Admin.Mesas
             var mesa = context.Mesas.FirstOrDefault(x => x.Id == id);
 
             if (mesa == null)
+            {
                 return Results.NotFound(id);
+            }
 
             context.Mesas.Remove(mesa);
             context.SaveChanges();
