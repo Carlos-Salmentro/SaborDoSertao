@@ -12,7 +12,9 @@ namespace SaborDoSertão.FinanceiroInfo
         public int Id { get; set; }
         [ForeignKey("ComandaId")]
         public int ComandaId { get; set; }
+        [Column("FormaDePagamento")]
         public FormaPagamento FormaDePagamento { get; set; }
+        [Column("ValorPago")]
         public double ValorPago { get; set; }
         [Column("Data")]
         public DateTime Data { get; set; }
@@ -24,7 +26,7 @@ namespace SaborDoSertão.FinanceiroInfo
             ComandaId = comandaId;
             FormaDePagamento = formaDePagamento;
             ValorPago = valorPago;
-            Data = DateTime.Now.ToLocalTime();
+            Data = DateTime.Now;
         }
     }
 }

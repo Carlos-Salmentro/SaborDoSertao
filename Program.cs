@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SaborDoSertão.EndPoints.Admin.Comandas;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
@@ -17,12 +19,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+//Add BbContext como servico
 builder.Services.AddDbContext<AppDBContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("SaborDoSertaoString");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
+
+//Add Identity como servico do ASPNet
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDBContext>();
+
 
 var app = builder.Build();
 

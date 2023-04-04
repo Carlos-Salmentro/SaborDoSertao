@@ -113,3 +113,8 @@ C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborD
 C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao - Copia\obj\Debug\net6.0\SaborDoSertão.pdb
 C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao - Copia\obj\Debug\net6.0\SaborDoSertão.genruntimeconfig.cache
 C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao - Copia\obj\Debug\net6.0\ref\SaborDoSertão.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\carlo\OneDrive\Área de Trabalho\Arquivos\Programação\Solucoes\SaborDoSertao\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
