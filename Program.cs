@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SaborDoSertão.EndPoints.Admin.Comandas;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
+using SaborDoSertão.EndPoints.Admin.Usuarios;
 using SaborDoSertão.EndPoints.Caixa.Comandas;
 using SaborDoSertão.EndPoints.Caixa.Mesas;
 using SaborDoSertão.EndPoints.Work.Comandas;
@@ -57,6 +58,9 @@ app.MapMethods(AdminProdutoDelete.Template, AdminProdutoDelete.Methods, AdminPro
 app.MapMethods(AdminProdutoPut.Template, AdminProdutoPut.Methods, AdminProdutoPut.Handler);
 app.MapMethods(AdminProdutosGetAll.Template, AdminProdutosGetAll.Methods, AdminProdutosGetAll.Handler);
 app.MapMethods(AdminComandasGet.Template, AdminComandasGet.Methods, AdminComandasGet.Handler);
+app.MapMethods(AdminUsuarioGet.Template, AdminUsuarioGet.Methods, AdminUsuarioGet.Handler);
+app.MapMethods(AdminUsuariosGetAll.Template, AdminUsuariosGetAll.Methods, AdminUsuariosGetAll.Handler);
+app.MapMethods(AdminUsuarioPost.Template, AdminUsuarioPost.Methods, AdminUsuarioPost.Handler);
 
 //caixa
 app.MapMethods(CaixaMesasGetAll.Template, CaixaMesasGetAll.Methods, CaixaMesasGetAll.Handler);

@@ -2,7 +2,7 @@
 
 namespace SaborDoSertão.EndPoints.Admin.Usuarios
 {
-    public class UsuarioPost
+    public class AdminUsuarioPost
     {
         public static string Template => "Admin/Usuarios";
         public static string[] Methods = new string[] {HttpMethods.Post.ToString() };
