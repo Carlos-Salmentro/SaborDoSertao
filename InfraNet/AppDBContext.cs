@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SaborDoSertão.FinanceiroInfo;
 using SaborDoSertão.Domain;
-using Microsoft.EntityFrameworkCore.Internal;
 using SaborDoSertão.Servicos.SeedService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

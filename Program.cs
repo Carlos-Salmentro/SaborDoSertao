@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using SaborDoSertão.EndPoints.Admin.Comandas;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
@@ -28,7 +27,15 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 });
 
 //Add Identity como servico do ASPNet
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(option =>
+{
+    option.Password.RequiredLength = 1;
+    option.Password.RequireDigit = false;
+    option.Password.RequireNonAlphanumeric = false;
+    option.Password.RequireLowercase = false;
+    option.Password.RequireUppercase = false;
+
+})
     .AddEntityFrameworkStores<AppDBContext>();
 
 
