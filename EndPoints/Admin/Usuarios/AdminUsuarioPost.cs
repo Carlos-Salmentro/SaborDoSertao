@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SaborDoSertão.EndPoints.Admin.Usuarios
 {
@@ -8,7 +9,7 @@ namespace SaborDoSertão.EndPoints.Admin.Usuarios
         public static string[] Methods = new string[] {HttpMethods.Post.ToString() };
         public static Delegate Handler => Action;
 
-        public static IResult Action(UsuarioRequest usuarioRequest, UserManager<IdentityUser> userManager)
+        public static IResult Action([FromBody]UsuarioRequest usuarioRequest, [FromServices]UserManager<IdentityUser> userManager)
         {
             IdentityUser user = new IdentityUser { Email= usuarioRequest.Email, UserName = usuarioRequest.Name, PhoneNumber = usuarioRequest.Phone };
 
