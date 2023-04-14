@@ -11,8 +11,9 @@ namespace SaborDoSertão.EndPoints.Admin.Usuarios
         public static IResult Action(UserManager<IdentityUser> userManager)
         {
             List<IdentityUser> users = userManager.Users.ToList();
+            List<UsuarioResponse> usuarioResponses = new List<UsuarioResponse>(users.Select(x => new UsuarioResponse (x.UserName, x.Email )));
 
-            return Results.Ok(users);
+            return Results.Ok(usuarioResponses);
         }
     }
 }
