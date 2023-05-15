@@ -2,7 +2,7 @@
 {
     public enum Status
     {
-        Disponivel,
-        EmUso
+        Disponivel = 0,
+        EmUso = 1
     }
 }
