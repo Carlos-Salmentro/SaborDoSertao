@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SaborDoSertão.EndPoints.Admin.Comandas;
@@ -38,6 +39,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(option =>
 })
     .AddEntityFrameworkStores<AppDBContext>();
 
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+});
 
 var app = builder.Build();
 
