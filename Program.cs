@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SaborDoSertão.EndPoints.Admin.Comandas;
 using SaborDoSertão.EndPoints.Admin.Mesas;
 using SaborDoSertão.EndPoints.Admin.Produtos;
@@ -10,6 +11,7 @@ using SaborDoSertão.EndPoints.Caixa.Mesas;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.InfraNet;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,7 +45,22 @@ builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateActor = true,
+        RequireAudience = true,
+        RequireExpirationTime = true,
+        RequireSignedTokens = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:MySecret"]))
+    };  
 });
+
+
 
 var app = builder.Build();
 
