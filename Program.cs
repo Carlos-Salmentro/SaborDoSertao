@@ -114,7 +114,8 @@ app.MapMethods(ComandaPost.Template, ComandaPost.Methods, ComandaPost.Handler);
 app.MapMethods(ComandaPutPedido.Template, ComandaPutPedido.Methods, ComandaPutPedido.Handler);
 app.MapMethods(ComandaGet.Template, ComandaGet.Methods, ComandaGet.Handler);
 
-
+//login
+app.MapMethods(LoginTokenPost.Template, LoginTokenPost.Methods, LoginTokenPost.Handler);
 
 app.Run();
 
