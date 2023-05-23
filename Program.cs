@@ -10,6 +10,7 @@ using SaborDoSertão.EndPoints.Caixa.Comandas;
 using SaborDoSertão.EndPoints.Caixa.Mesas;
 using SaborDoSertão.EndPoints.Work.Comandas;
 using SaborDoSertão.EndPoints.Work.Mesas;
+using SaborDoSertão.EndPoints.LoginToken;
 using SaborDoSertão.InfraNet;
 using System.Text;
 
@@ -50,6 +51,7 @@ builder.Services.AddAuthentication(x =>
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateActor = true,
+
         RequireAudience = true,
         RequireExpirationTime = true,
         RequireSignedTokens = true,
@@ -111,6 +113,8 @@ app.MapMethods(ComandasGetAll.Template, ComandasGetAll.Methods, ComandasGetAll.H
 app.MapMethods(ComandaPost.Template, ComandaPost.Methods, ComandaPost.Handler);
 app.MapMethods(ComandaPutPedido.Template, ComandaPutPedido.Methods, ComandaPutPedido.Handler);
 app.MapMethods(ComandaGet.Template, ComandaGet.Methods, ComandaGet.Handler);
+
+
 
 app.Run();
 
