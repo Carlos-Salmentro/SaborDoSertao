@@ -13,6 +13,7 @@ using SaborDoSertão.EndPoints.Work.Mesas;
 using SaborDoSertão.EndPoints.LoginToken;
 using SaborDoSertão.InfraNet;
 using System.Text;
+using Microsoft.VisualBasic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(option =>
 })
     .AddEntityFrameworkStores<AppDBContext>();
 
+//SecurityToken
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -51,14 +53,14 @@ builder.Services.AddAuthentication(x =>
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateActor = true,
-
         RequireAudience = true,
         RequireExpirationTime = true,
         RequireSignedTokens = true,
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["JWT:Issuer"],
         ValidAudience = builder.Configuration["JWT:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:MySecret"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:MySecret"])),
+        ClockSkew = TimeSpan.Zero
     };  
 });
 
