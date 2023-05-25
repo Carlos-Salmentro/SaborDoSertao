@@ -14,6 +14,7 @@ using SaborDoSertão.EndPoints.LoginToken;
 using SaborDoSertão.InfraNet;
 using System.Text;
 using Microsoft.VisualBasic;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,9 +62,16 @@ builder.Services.AddAuthentication(x =>
         ValidAudience = builder.Configuration["JWT:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:MySecret"])),
         ClockSkew = TimeSpan.Zero
-    };  
+    };
 });
 
+builder.Services.AddAuthorization(x =>
+{
+    x.FallbackPolicy = new AuthorizationPolicyBuilder()
+    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+    .RequireAuthenticatedUser()
+    .Build();
+});
 
 
 var app = builder.Build();
