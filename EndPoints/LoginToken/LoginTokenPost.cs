@@ -36,6 +36,7 @@ namespace SaborDoSertão.EndPoints.LoginToken
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(ClaimTypes.Name, user.NormalizedUserName)
                 }),
+                Expires = DateTime.UtcNow.AddHours(12),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Issuer = configuration["JWT:Issuer"],
                 Audience = configuration["JWT:Audience"],
